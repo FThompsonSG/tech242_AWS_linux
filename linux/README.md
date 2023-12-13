@@ -33,6 +33,9 @@
 5. Include echoes in script
 6. To run script, provide path to run script but may need to change permission of x first
 7. If a script is idempotent it can be run as many times as we like
+
+   ![Shell Script Screenshot](../README_images/Shell_Script_Screenshot.jpg)
+
 ### Script Specific Commands
 - sudo apt update -y = downloads updates and is a good way to check internet connection
 - sudo apt upgrade -y = installs the updates
