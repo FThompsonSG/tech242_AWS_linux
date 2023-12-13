@@ -4,7 +4,7 @@
 - The ownership of a file will determine who has what permissions so reduces the risk of a file being accidentally or unknowingly modified/deleted.
 
 ## 2. What is the command to view file ownership?
- - “Is -I” or "ls -lah"
+- “Is -I” or "ls -lah"
 
 ## 3. What permissions are set when a user creates a file or directory? Who does file or directory belong to?
 - Read, write and execute (though typically not received by user). The file will typically belong to the one who created it.
