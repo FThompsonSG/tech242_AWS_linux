@@ -67,3 +67,11 @@ Impact on Balance Sheet: CapEx increases the organization's assets (the value of
 -	DevOps: Culture is a critical aspect of DevOps, emphasizing the importance of a collaborative and customer-centric mindset. It encourages a culture of continuous improvement, experimentation, and feedback.
 -	Link to Cloud: The cloud can influence an organization's culture by promoting agility and innovation. Cloud adoption often goes hand in hand with a shift in mindset, where teams become more focused on delivering value to customers and iterating quickly based on feedback.
 
+## NB.
+
+- Serverless: No control over what servers or how many, improves scalability as this scales based on demand
+- Scaling: Vertical (up and down) means want bigger VMs with more memory, CPU etc. Old VM transfers to larger one and is terminated. Horizontal (in and out) is serverless so just creates more VMs
+- Select region based mainly on location of end users re latency
+- Points of service?
+- Availability zones?
+- Bash is Linux but GitBash is software emulating Linux that runs on top of our OS
