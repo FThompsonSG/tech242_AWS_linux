@@ -1,7 +1,7 @@
 # Research Managing File Ownership
 
 ## 1. Why is managing file ownership important?
-- The ownership of a file will determine who has what permissions so redcusses the risk of a file being accidentally or unknowingly modified/deleted.
+- The ownership of a file will determine who has what permissions so reduces the risk of a file being accidentally or unknowingly modified/deleted.
 
 ## 2. What is the command to view file ownership?
  - “Is -I” or "ls -lah"

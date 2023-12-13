@@ -1,6 +1,7 @@
 # Linux
 
-## Bash (Bourne Again Shell) An Interface that Runs Commands<br>Commands
+## Bash (Bourne Again Shell) An Interface that Runs Commands<br>
+### Commands
 - uname -a = displays all system information
 - uname --help = displays a help message and exit
 - pwd = prints working directory
@@ -21,22 +22,27 @@
 - chown = granting ownership of files or folders
 - sudo = command to escalate privileges
 - whatis = find out what a command is used for
+- ls -l = permissions
+- export = assign environment variable
+
+## How To Run a Script
+1. Shell script files end in .sh
+2. Shell scripts start with #!/bin/bash which is the path pointing to the interpreter
+3. Annotate with comments to plan your script
+4. Test commands manually before adding to the script
+5. Include echoes in script
+6. To run script, provide path to run script but may need to change permission of x first
+7. If a script is idempotent it can be run as many times as we like
+### Script Specific Commands
 - sudo apt update -y = downloads updates and is a good way to check internet connection
 - sudo apt upgrade -y = installs the updates
 - sudo apt install nginx -y = installs nginx
 - sudo systemctl status nginx = check manager processes
 - sudo systemctl restart nginx = restarts nginx which we do if we have changed the configurations and want to apply
 - sudo systemctl enable nginx = starts process/service automatically at boot
-- ls -l = permissions
-- export = assign environment variable
 
-~ is a tilda and means home directory
-/ means root and root is higher than home directory
-Absolute Path starts at the root directory
-Shell script files end in .sh
-Shell scripts start with #!/bin/bash which is the path pointing to the interpreter
-Test commands manually before adding to the script
-To run script, provide path to run script but may need to change permission of x first
-Include echoes in script
-If a script is idempotent it can be run as many times as we like
-Environment variable can be used to store sensitive data
+## Additional Notes
+- ~ is a tilda and means home directory
+- / means root and root is higher than home directory
+- Absolute Path starts at the root directory
+- Environment variable can be used to store sensitive data
