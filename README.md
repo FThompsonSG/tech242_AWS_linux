@@ -8,8 +8,8 @@
 
 ## Day 1 - Intro to Cloud & AWS
 
-[What is cloud](what_is_cloud.md)<br>
-[AWS Basics](aws_basics.md)
+[What Is Cloud](cloud/README.md)
+[AWS Basics](aws/README.md)
 
 ## Day 2 & 3 - Linux and Bash
 
