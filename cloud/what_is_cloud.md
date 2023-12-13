@@ -24,3 +24,46 @@
 -	PaaS (Platform as a Service) = We only provide the code (data and application), the provider provides hardware and software. Use cases: Web application development, API development, DevOps, and continuous integration.
 -	SaaS (Software as a Service) = Data only on our side such as cloud streaming/gaming (e.g. save files). Popular SaaS applications include Gmail (email), Microsoft Office 365 (productivity suite), and Salesforce (customer relationship management).
 
+## OpEx vs CapEx - Wwo financial categories that organizations use to classify and manage their spending.
+
+1. Operational Expenditure (OpEx):
+
+Nature: OpEx represents day-to-day expenses incurred in the regular operation of a business. These expenses are typically recurring and are essential for running the business smoothly.
+
+Accounting Treatment: OpEx is treated as a current expense on the income statement. It is deducted from the company's revenue to calculate the operating profit or loss.
+
+Tax Treatment: OpEx is usually fully deductible from the organization's taxable income in the year it is incurred, reducing the tax liability.
+
+Examples: Employee salaries, rent, utilities, office supplies, software subscriptions, maintenance contracts, and marketing expenses are all examples of operational expenditures.
+
+Impact on Balance Sheet: OpEx does not affect the organization's assets or liabilities. It is an expense that reduces the net income.
+
+2. Capital Expenditure (CapEx):
+
+Nature: CapEx represents expenses incurred for acquiring, upgrading, or improving assets that have long-term value and are expected to benefit the organization for several years. These are investments in the future of the business.
+
+Accounting Treatment: CapEx is capitalized on the balance sheet as an asset. Instead of being deducted immediately from revenue, the cost of the asset is spread over its useful life through depreciation or amortization (focuses on spreading out loan payments over time), and this expense is reflected in the income statement over time.
+
+Tax Treatment: CapEx is typically not fully deductible in the year it is incurred. Instead, it is depreciated or amortized over several years, which can lead to tax benefits over time.
+
+Examples: Purchasing real estate, buying machinery, building infrastructure, and developing custom software are examples of capital expenditures.
+
+Impact on Balance Sheet: CapEx increases the organization's assets (the value of the acquired asset) on the balance sheet. Over time, the asset's value is reduced through depreciation or amortization.
+
+## Four Pillars of DevOps
+
+1.	Collaboration
+-	DevOps: Collaboration is at the core of DevOps. It involves breaking down silos between development and operations teams, encouraging communication, and fostering a culture of collaboration and shared responsibility.
+-	Link to Cloud: Cloud computing enables collaboration by providing a common platform accessible to both development and operations teams. Cloud-based tools and services facilitate collaboration by allowing teams to work on shared resources, automate processes, and monitor applications together.
+
+2.	Automation
+-	DevOps: Automation is a fundamental principle of DevOps. It involves automating repetitive tasks, such as building, testing, and deploying code, to improve efficiency and reduce manual errors.
+-	Link to Cloud: Cloud platforms offer a wide range of automation capabilities. DevOps teams can leverage cloud services to automate provisioning, scaling, and management of infrastructure, as well as deployment pipelines. This leads to faster development cycles and more reliable operations.
+
+3.	Measurement
+-	DevOps: Measurement involves collecting data and metrics throughout the software development lifecycle to gain insights into the performance of applications and processes. This helps teams make informed decisions and continuously improve.
+-	Link to Cloud: Cloud providers offer monitoring and analytics tools that make it easier to collect and analyze data related to application performance, resource utilization, and user behavior. DevOps teams can use these tools to measure and optimize their applications running in the cloud.
+4.	Culture
+-	DevOps: Culture is a critical aspect of DevOps, emphasizing the importance of a collaborative and customer-centric mindset. It encourages a culture of continuous improvement, experimentation, and feedback.
+-	Link to Cloud: The cloud can influence an organization's culture by promoting agility and innovation. Cloud adoption often goes hand in hand with a shift in mindset, where teams become more focused on delivering value to customers and iterating quickly based on feedback.
+
