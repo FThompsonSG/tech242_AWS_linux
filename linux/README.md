@@ -3,7 +3,7 @@
 ## Bash (Bourne Again Shell) An Interface that Runs Commands<br>
 ### Commands
 - uname -a = displays all system information
-- uname --help = displays a help message and exit
+- --help = displays a help message and exit
 - pwd = prints working directory
 - cd <directoryname> = Navigate to specified directory
 - clear = clears the terminal
@@ -21,8 +21,9 @@
 - chmod +<permissiontype> <filename> = changes file permissions
 - chown = granting ownership of files or folders
 - sudo = command to escalate privileges
-- whatis = find out what a command is used for
+- whatis <command> = find out what a command is used for
 - ls -l = permissions
+- ls -a = list all files in directory
 - export = assign environment variable
 - man <command> = manual for a specific command
 - ps aux = all processes but not in real time
@@ -42,11 +43,17 @@
 
 ### Script Specific Commands
 - sudo apt update -y = downloads updates and is a good way to check internet connection
-- sudo apt upgrade -y = installs the updates
-- sudo apt install nginx -y = installs nginx
+- sudo apt upgrade -y = installs the updates (NB. must avoid user interaction)
+- sudo apt install nginx -y = installs nginx (NB. must avoid user interaction)
+- sudo DEBIAN_FRONTEND=noninteractive apt install maven -y (NB. must avoid user interaction)
+- sudo DEBIAN_FRONTEND=noninteractive apt install openjdk-17-jdk -y (NB. must avoid user interaction)
 - sudo systemctl status nginx = check manager processes
 - sudo systemctl restart nginx = restarts nginx which we do if we have changed the configurations and want to apply
 - sudo systemctl enable nginx = starts process/service automatically at boot
+
+- Add "sudo DEBIAN_FRONTEND=noninteractive" in front of upgrade command and any installation commands to avoid any user interaction
+- To copy a file "scp -i ~/.ssh/my-ssh-key LOCAL_FILE_PATH USERNAME@IP_ADDRESS:~" so an example is "scp -i ~/.ssh/tech242.pem ~/Documents/sendthisover.txt ubuntu@18.202.234.49:~"
+- To copy a folder "scp -r -i ~/.ssh/tech242.pem ~/Desktop/Test-Folder ubuntu@3.254.95.144:~"
 
 ## Additional Notes
 - ~ is a tilda and means home directory
