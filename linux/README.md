@@ -120,8 +120,7 @@ echo ""
 # cd into the right folder and run the app
 echo "Moving into correct folder..."
 echo ""
-cd jsonvoorhees-java-atlas-app/springapi
-cd springapi/
+cd tech242-jsonvoorhees-app/springapi/
 echo "Successfully moved into correct folder"
 echo ""
 echo "Running app..."
