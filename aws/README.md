@@ -19,8 +19,8 @@
 
 12.	Check summary then click Launch instance
 
-13.	Copy and paste link e.g. "chmod 400 tech242.pem" from next page
-14.	Copy and paste link e.g. "ssh -i "tech242.pem" ubuntu@ec2-3-249-250-55.eu-west-1.compute.amazonaws.com" from next page
+13.	Copy and paste link e.g. "chmod 400 tech242.pem" from next page into terminal
+14.	Copy and paste link e.g. "ssh -i "tech242.pem" ubuntu@ec2-3-249-250-55.eu-west-1.compute.amazonaws.com" from next page into terminal
     ![Connect To Instance Screenshot](../README_images/Connect_To_Instance_Screenshot.jpg)
 
 15.	Type and enter yes

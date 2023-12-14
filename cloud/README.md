@@ -20,11 +20,17 @@
 ## Different types of Cloud service
 
 -	On-Premises = All physically onsite (more control but more responsibility)
--	IaaS (Infrastructure as a Service) = Virtualisation, servers, storage and networking off site which provider manages.
--	PaaS (Platform as a Service) = We only provide the code (data and application), the provider provides hardware and software. Use cases: Web application development, API development, DevOps, and continuous integration.
--	SaaS (Software as a Service) = Data only on our side such as cloud streaming/gaming (e.g. save files). Popular SaaS applications include Gmail (email), Microsoft Office 365 (productivity suite), and Salesforce (customer relationship management).
 
-## OpEx vs CapEx - Wwo financial categories that organizations use to classify and manage their spending.
+-	IaaS (Infrastructure as a Service) = IaaS provides virtualized computing resources over the internet. Users can rent virtual machines, storage, and networking infrastructure on a pay-as-you-go basis. Examples of IaaS providers include Amazon EC2 (Amazon Web Services), Azure Virtual Machines (Microsoft Azure), and Google Compute Engine (Google Cloud Platform).
+Use cases: Running virtual servers, hosting websites, developing and testing applications.
+
+-	PaaS (Platform as a Service) = PaaS offers a platform that includes both the hardware and software needed for application development and deployment. It abstracts the underlying infrastructure. Developers can focus on coding, while the platform handles scalability, load balancing, and other operational tasks. Examples of PaaS providers include Google App Engine, Heroku, and AWS Elastic Beanstalk.
+Use cases: Web application development, API development, DevOps, and continuous integration.
+
+-	SaaS (Software as a Service) = SaaS delivers software applications over the internet on a subscription basis. Users access the software through a web browser, eliminating the need for local installations. Popular SaaS applications include Gmail (email), Microsoft Office 365 (productivity suite), and Salesforce (customer relationship management).
+Use cases: Email services, office applications, collaboration tools, and customer management software.
+
+## OpEx vs CapEx - Two financial categories that organizations use to classify and manage their spending.
 
 1. Operational Expenditure (OpEx):
 
@@ -63,6 +69,7 @@ Impact on Balance Sheet: CapEx increases the organization's assets (the value of
 3.	Measurement
 -	DevOps: Measurement involves collecting data and metrics throughout the software development lifecycle to gain insights into the performance of applications and processes. This helps teams make informed decisions and continuously improve.
 -	Link to Cloud: Cloud providers offer monitoring and analytics tools that make it easier to collect and analyze data related to application performance, resource utilization, and user behavior. DevOps teams can use these tools to measure and optimize their applications running in the cloud.
+
 4.	Culture
 -	DevOps: Culture is a critical aspect of DevOps, emphasizing the importance of a collaborative and customer-centric mindset. It encourages a culture of continuous improvement, experimentation, and feedback.
 -	Link to Cloud: The cloud can influence an organization's culture by promoting agility and innovation. Cloud adoption often goes hand in hand with a shift in mindset, where teams become more focused on delivering value to customers and iterating quickly based on feedback.
@@ -73,5 +80,5 @@ Impact on Balance Sheet: CapEx increases the organization's assets (the value of
 - Scaling: Vertical (up and down) means want bigger VMs with more memory, CPU etc. Old VM transfers to larger one and is terminated. Horizontal (in and out) is serverless so just creates more VMs
 - Select region based mainly on location of end users re latency
 - Points of service?
-- Availability zones?
+- Availability zones are isolated data centers located within specific regions in which public cloud services originate and operate. Cloud computing businesses typically have multiple worldwide availability zones. This helps ensure cloud customers have a stable connection to a cloud service in the geographic zone that's closest to them.
 - Bash is Linux but GitBash is software emulating Linux that runs on top of our OS

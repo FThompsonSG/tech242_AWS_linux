@@ -24,6 +24,10 @@
 - whatis = find out what a command is used for
 - ls -l = permissions
 - export = assign environment variable
+- man <command> = manual for a specific command
+- ps aux = all processes but not in real time
+- sleep = similar to wait and include & to run in background
+- kill <PID> = to terminate process or include -9 after kill to brute force
 
 ## How To Run a Script
 1. Shell script files end in .sh
@@ -49,3 +53,7 @@
 - / means root and root is higher than home directory
 - Absolute Path starts at the root directory
 - Environment variable can be used to store sensitive data
+- Process is something in memory and posibly using the CPU
+- System processes dont provide application or interface for user to use
+- User processes relate to a terminal session
+- Single core can only process one at a time

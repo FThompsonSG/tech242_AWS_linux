@@ -14,6 +14,8 @@
 ## Day 2 & 3 - Linux and Bash
 
 [Linux README](linux/README.md)
-[Title](managing_file_ownership/task_2.8a.md)
+[Task 2.8a](managing_file_ownership/task_2.8a.md)
+[Task 2.8b](managing_file_ownership/task_2.8b.md)
+[Task 2.8c](managing_file_ownership/task_2.8c.md)
 
 ## Day 4
