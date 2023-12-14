@@ -64,3 +64,68 @@
 - System processes dont provide application or interface for user to use
 - User processes relate to a terminal session
 - Single core can only process one at a time
+
+scp -r -i ~/.ssh/tech242.pem /Users/jackiethompson/Documents/ForCloud/Documents/app-code/jsonvoorhees-java-atlas-app ubuntu@ec2-3-254-95-144.eu-west-1.compute.amazonaws.com:~
+
+mvn spring-boot:start
+
+cd into right folder and app
+
+#!/bin/bash
+
+# update & upgrade
+echo "Updating..."
+echo ""
+sudo apt update -y
+echo ""
+echo "Update complete"
+echo ""
+echo "Upgrading..."
+echo ""
+sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
+echo ""
+echo "Upgrade complete"
+echo ""
+# install maven
+echo "Installing Maven..."
+echo ""
+sudo DEBIAN_FRONTEND=noninteractive apt install maven -y
+echo ""
+echo "Maven install complete"
+# check maven is installed
+echo ""
+echo "Confirming Maven installation..."
+echo ""
+mvn -version
+echo ""
+# install JDK java 17
+echo "Installing JDK Java 17..."
+echo ""
+sudo DEBIAN_FRONTEND=noninteractive apt install openjdk-17-jdk -y
+echo ""
+echo "JDK Java 17 complete"
+echo ""
+# check JDK java 17 is installed
+echo "Confirming JDK Java 17 installation..."
+echo ""
+java -version
+echo ""
+# copy the app code to this VM
+echo "Cloning repository..."
+echo ""
+git clone https://github.com/FThompsonSG/tech242-jsonvoorhees-app.git
+echo ""
+echo "Repository cloned."
+echo ""
+# cd into the right folder and run the app
+echo "Moving into correct folder..."
+echo ""
+cd jsonvoorhees-java-atlas-app/springapi
+cd springapi/
+echo "Successfully moved into correct folder"
+echo ""
+echo "Running app..."
+echo ""
+mvn spring-boot:start
+echo ""
+echo "App running successfully"
