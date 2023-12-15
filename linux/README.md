@@ -11,6 +11,7 @@
 - curl <fileurl> = download a file from source url
 - cp <filename> <newfilename> = copy a file
 - rm <filename> = remove a file
+- rmdir / rm -d <emptydirectory> or rm -r <notemptyudirectory> = remove a directory
 - mv <filename> <renamedfile> OR <destinationfolder> = rename or move file
 - mkdir <newdirectoryname> = make new directory
 - touch <filename> = make an empty file
@@ -27,6 +28,7 @@
 - export = assign environment variable
 - man <command> = manual for a specific command
 - ps aux = all processes but not in real time
+- jobs = all processes in real time organised by CPU usage
 - sleep = similar to wait and include & to run in background
 - kill <PID> = to terminate process or include -9 after kill to brute force
 
@@ -36,7 +38,7 @@
 3. Annotate with comments to plan your script
 4. Test commands manually before adding to the script
 5. Include echoes in script
-6. To run script, provide path to run script but may need to change permission of x first
+6. To run script, provide path to run script but may need to change permission of x first.  E.g. ./provision-test.sh
 7. If a script is idempotent it can be run as many times as we like
 
    ![Shell Script Screenshot](../README_images/Shell_Script_Screenshot.jpg)

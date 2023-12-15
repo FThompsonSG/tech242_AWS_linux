@@ -81,4 +81,4 @@ Impact on Balance Sheet: CapEx increases the organization's assets (the value of
 - Select region based mainly on location of end users re latency
 - Points of service?
 - Availability zones are isolated data centers located within specific regions in which public cloud services originate and operate. Cloud computing businesses typically have multiple worldwide availability zones. This helps ensure cloud customers have a stable connection to a cloud service in the geographic zone that's closest to them.
-- Bash is Linux but GitBash is software emulating Linux that runs on top of our OS
+- Bash is Linux but GitBash is software emulating Linux that runs on top of our OS and has git commands
