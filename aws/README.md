@@ -46,3 +46,11 @@ AMIs (Amazon Machine Images) are like a snapshot or a template of a virtual comp
    ![Launch Instance From AMI](../README_images/Launch_Instance_From_AMI_Screenshot.jpg)
 
 7. Create instance as usual but your custom AMI will now be selected
+
+# AMI Deregistering and Snapshot Deletion
+
+1. Got to the AMIs by clicking AMIs on the left hand side of the screen under Images.
+2. Find your specific AMI from the list, check the box and under the actions tab click deregister.
+3. A pop up will open and you need to click delete snapshot then follow the hyperlink to open the snapshots in a new tab, this will lead you to the specific snapshot automatically
+4. Go back to the AMI and confirm deregister.
+5. Go back to the snapshot page, check the box and under actions click delete and confirm.
