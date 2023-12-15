@@ -89,18 +89,21 @@ sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
 echo ""
 echo "Upgrade complete"
 echo ""
+
 # install maven
 echo "Installing Maven..."
 echo ""
 sudo DEBIAN_FRONTEND=noninteractive apt install maven -y
 echo ""
 echo "Maven install complete"
-# check maven is installed
 echo ""
+
+# check maven is installed
 echo "Confirming Maven installation..."
 echo ""
 mvn -version
 echo ""
+
 # install JDK java 17
 echo "Installing JDK Java 17..."
 echo ""
@@ -108,11 +111,13 @@ sudo DEBIAN_FRONTEND=noninteractive apt install openjdk-17-jdk -y
 echo ""
 echo "JDK Java 17 complete"
 echo ""
+
 # check JDK java 17 is installed
 echo "Confirming JDK Java 17 installation..."
 echo ""
 java -version
 echo ""
+
 # copy the app code to this VM
 echo "Cloning repository..."
 echo ""
@@ -120,6 +125,7 @@ git clone https://github.com/FThompsonSG/tech242-jsonvoorhees-app.git repo
 echo ""
 echo "Repository cloned."
 echo ""
+
 # cd into the right folder and run the app
 echo "Moving into correct folder..."
 echo ""

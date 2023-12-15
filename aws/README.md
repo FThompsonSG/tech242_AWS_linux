@@ -27,3 +27,22 @@
 
 16.	Type and enter yes
 17.	Should be connected/logged in, type exit to exit then manually stop on AWS website
+
+# AWS Custom AMI Creation
+
+AMIs (Amazon Machine Images) are like a snapshot or a template of a virtual computer that you can use as a starting point to create new virtual machines. It is like a pre-configured package that includes an operating system, software, and any additional configurations you need. In simple terms, an AMI is a blueprint for creating virtual machines in AWS. You can choose from a variety of publicly available AMIs or create custom ones to suit your specific requirements.
+
+1. On your current running instance you want an image of, click on Actions, scroll down to Image and templates and select Create image.
+   ![Create New Image Screenshot](../README_images/Create_New_Image_Screenshot.jpg)
+
+2. Enter an image name e.g. "tech242-fergus-ready-to-run-java-atlas-app-ami"
+3. Enter a description e.g. "Linux 22.04 LTS, maven, JDK 17, app folder"
+
+4. Add a new tag at the bottom, key should be Name and the value should be the same as the image name you entered above
+   ![AMI Tag Creation Screenshot](../README_images/AMI_Tag_Creation_Screenshot.jpg)
+
+5. Once those details are entered, hit Create image in the bottom right hand corner.
+6. You can then launch an instance from the AMI page you will be redirected to
+   ![Launch Instance From AMI](../README_images/Launch_Instance_From_AMI_Screenshot.jpg)
+
+7. Create instance as usual but your custom AMI will now be selected
