@@ -57,6 +57,11 @@
 - To copy a file "scp -i ~/.ssh/my-ssh-key LOCAL_FILE_PATH USERNAME@IP_ADDRESS:~" so an example is "scp -i ~/.ssh/tech242.pem ~/Documents/sendthisover.txt ubuntu@18.202.234.49:~"
 - To copy a folder "scp -r -i ~/.ssh/tech242.pem ~/Desktop/Test-Folder ubuntu@3.254.95.144:~"
 
+## User Data
+- When creating instance, at the bottom open up advanced details.
+- Go right to the bottom and copy and paste (or upload script file) 
+  ![User Data Screenshot](../README_images/User_Data_Screenshot.jpg)
+
 ## Additional Notes
 - ~ is a tilda and means home directory
 - / means root and root is higher than home directory
@@ -111,14 +116,14 @@ echo ""
 # copy the app code to this VM
 echo "Cloning repository..."
 echo ""
-git clone https://github.com/FThompsonSG/tech242-jsonvoorhees-app.git
+git clone https://github.com/FThompsonSG/tech242-jsonvoorhees-app.git repo
 echo ""
 echo "Repository cloned."
 echo ""
 # cd into the right folder and run the app
 echo "Moving into correct folder..."
 echo ""
-cd tech242-jsonvoorhees-app/springapi/
+cd repo/springapi
 echo "Successfully moved into correct folder"
 echo ""
 echo "Running app..."
