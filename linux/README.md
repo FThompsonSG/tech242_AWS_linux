@@ -67,10 +67,6 @@
 
 scp -r -i ~/.ssh/tech242.pem /Users/jackiethompson/Documents/ForCloud/Documents/app-code/jsonvoorhees-java-atlas-app ubuntu@ec2-3-254-95-144.eu-west-1.compute.amazonaws.com:~
 
-mvn spring-boot:start
-
-cd into right folder and app
-
 #!/bin/bash
 
 # update & upgrade
