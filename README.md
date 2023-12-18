@@ -4,7 +4,7 @@
   - [Day 1 - Intro to Cloud \& AWS](#day-1---intro-to-cloud--aws)
   - [Day 2 \& 3 - Linux and Bash](#day-2--3---linux-and-bash)
   - [Day 4 - Writing and Running First Shell Script](#day-4---writing-and-running-first-shell-script)
-  - [Day 5 -](#day-5--)
+  - [Day 5 - Automating Shell Script](#day-5---automating-shell-script)
 
 
 ## Day 1 - Intro to Cloud & AWS
@@ -23,4 +23,5 @@
 
 [Linux README](linux/README.md) Lines 70 - 126
 
-## Day 5 - 
+## Day 5 - Automating Shell Script
+

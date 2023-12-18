@@ -30,6 +30,8 @@ Use cases: Web application development, API development, DevOps, and continuous 
 -	SaaS (Software as a Service) = SaaS delivers software applications over the internet on a subscription basis. Users access the software through a web browser, eliminating the need for local installations. Popular SaaS applications include Gmail (email), Microsoft Office 365 (productivity suite), and Salesforce (customer relationship management).
 Use cases: Email services, office applications, collaboration tools, and customer management software.
 
+![Cloud Services Diagram](../README_images/Cloud_Service_Diagram.jpg)
+
 ## OpEx vs CapEx - Two financial categories that organizations use to classify and manage their spending.
 
 1. Operational Expenditure (OpEx):
@@ -82,3 +84,15 @@ Impact on Balance Sheet: CapEx increases the organization's assets (the value of
 - Points of service?
 - Availability zones are isolated data centers located within specific regions in which public cloud services originate and operate. Cloud computing businesses typically have multiple worldwide availability zones. This helps ensure cloud customers have a stable connection to a cloud service in the geographic zone that's closest to them.
 - Bash is Linux but GitBash is software emulating Linux that runs on top of our OS and has git commands
+
+## Levels of Automation
+
+1. Manual - Least automated (SSH in)
+2. Script (SSH in)
+3. User Data - Most automated (runs as route user, starts in route directory and only runs once)
+
+## Three Tier Deployment
+
+1. Application Tier (app)
+2. Logic Tier (API)
+3. Data Tier (database)
