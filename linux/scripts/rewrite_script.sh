@@ -75,7 +75,7 @@ echo ""
 echo "Apache modules enabled"
 echo ""
 
-# Create a virtual host configuration file
+# Create a virtual host configuration file by re-write
 VHOST_CONF="/etc/apache2/sites-available/000-default.conf"
 cat <<EOF | sudo tee "$VHOST_CONF"> /dev/null
 <VirtualHost *:80>
@@ -103,7 +103,7 @@ echo ""
 # run the application
 echo "Running app..."
 echo ""
-mvn spring-boot:stop
-mvn spring-boot:start
+sudo mvn spring-boot:stop
+sudo mvn spring-boot:start
 echo ""
 echo "App running successfully"
