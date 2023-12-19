@@ -171,14 +171,3 @@ sudo a2ensite reverse-proxy
 
 # Reload Apache to apply changes
 sudo systemctl reload apache2
-
-sudo systemctl start apache2
-sudo systemctl enable apache2
-
-if grep -q 'your-search-string' /path/to/your/config.file; then
-    # The string exists, so nothing to do
-    echo "Reverse proxy already configured."
-else
-    # reverse proxy not configured yet
-    sed -i 'N a\your line of code' /path/to/your/config.file
-fi

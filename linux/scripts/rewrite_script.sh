@@ -1,44 +1,80 @@
 #!/bin/bash
+
 cd
+echo ""
+echo "Updating..."
+echo ""
 sudo apt update -y
-echo "Update Done!"
+echo ""
+echo "Update complete"
+echo ""
+echo "Upgrading..."
 echo ""
 sudo DEBIAN_FRONTEND=noninteractive apt upgrade -y
-echo "Update Done!"
 echo ""
+echo "Upgrade complete"
+echo ""
+
 # install maven
+echo "Installing Maven..."
+echo ""
 sudo DEBIAN_FRONTEND=noninteractive apt install maven -y
-echo "Maven Install Done!"
 echo ""
+echo "Maven install complete"
+echo ""
+
 # check maven is installed
+echo "Confirming Maven installation..."
 mvn -v
-echo "Maven Check Done!"
+echo "Maven installation confirmed"
 echo ""
+
 # install JDK (java) 17
+echo "Installing JDK Java 17..."
+echo ""
 sudo DEBIAN_FRONTEND=noninteractive apt install openjdk-17-jdk -y
-echo "Installed JDK Done!"
 echo ""
+echo "JDK Java 17 complete"
+echo ""
+
 # check JDK 17 is installed
+echo "Confirming Java installation..."
 java -version
-echo "Java Check Done!"
+echo "Java installation confirmed"
 echo ""
+
 # copy the app code to this VM
+echo "Installing Git..."
+echo ""
 sudo DEBIAN_FRONTEND=noninteractive apt install git -y
-echo "Git Install Done!"
+echo ""
+echo "Git install complete"
+echo ""
 rm -rf repo
+echo "Cloning repository..."
+echo ""
 git clone https://github.com/FThompsonSG/tech242-jsonvoorhees-app.git repo
-echo "Git Clone Done!"
- 
+echo ""
+echo "Repository cloned."
+echo ""
+
 # Install Apache
+echo "Installing Apache..."
+echo ""
 sudo DEBIAN_FRONTEND=noninteractive apt install apache2 -y
- 
+echo ""
 sudo systemctl start apache2
 sudo systemctl enable apache2
- 
+echo ""
+
 # Enable necessary Apache modules
+echo "Enabling Apache modules..."
 sudo a2enmod proxy
 sudo a2enmod proxy_http
- 
+echo ""
+echo "Apache modules enabled"
+echo ""
+
 # Create a virtual host configuration file
 VHOST_CONF="/etc/apache2/sites-available/000-default.conf"
 cat <<EOF | sudo tee "$VHOST_CONF"> /dev/null
@@ -50,18 +86,24 @@ cat <<EOF | sudo tee "$VHOST_CONF"> /dev/null
     ProxyPreserveHost On
     ProxyPass / http://localhost:5000/
     ProxyPassReverse / http://localhost:5000/
- 
+
     ErrorLog \${APACHE_LOG_DIR}/error.log
     CustomLog \${APACHE_LOG_DIR}/access.log combined
 
 </VirtualHost>
 EOF
 sudo systemctl reload apache2
- 
-cd repo/
-echo "cd Into app Done!"
-cd springapi/
-echo "cd into springapi Done!"
+echo ""
+echo "Moving into correct folder..."
+echo ""
+cd repo/springapi/
+echo "Successfully moved into correct folder"
+echo ""
+
 # run the application
-sudo mvn spring-boot:start
-echo "The App is Running!"
+echo "Running app..."
+echo ""
+mvn spring-boot:stop
+mvn spring-boot:start
+echo ""
+echo "App running successfully"
