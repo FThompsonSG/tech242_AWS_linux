@@ -187,5 +187,4 @@ sudo a2ensite reverse-proxy
 
 # Reload Apache to apply changes
 sudo systemctl reload apache2
-
 ```
