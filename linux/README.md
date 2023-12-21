@@ -72,7 +72,9 @@
 ## Using User Data
 1. When creating instance, at the bottom open up advanced details.
 2. Go right to the bottom and copy and paste (or upload script file) 
-3. 
+
+  NB. A blocker I have experienced during this stage of automation is forgetting to include the shebang which clearly stops the script from executing, the best way I have found to address this blocker is simply practice/repetition.
+
   ![User Data Screenshot](../README_images/User_Data_Screenshot.jpg)
 
 ### Additional General Notes

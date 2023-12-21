@@ -46,6 +46,7 @@ AMIs (Amazon Machine Images) are like a snapshot or a template of a virtual comp
    ![Launch Instance From AMI](../README_images/Launch_Instance_From_AMI_Screenshot.jpg)
 
 7. Create instance as usual but your custom AMI will now be selected
+8. If required make sure to include user data for commands such as cd or mvn spring-boot:start
 
 # AMI Deregistering and Snapshot Deletion
 

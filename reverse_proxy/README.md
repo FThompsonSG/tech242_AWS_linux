@@ -61,3 +61,5 @@ cat <<EOF | sudo tee "$VHOST_CONF"> /dev/null
 EOF
 sudo systemctl reload apache2
 ```
+
+NB. A blocker I have experienced when setting up my reverse proxy was remembering to include "sudo systemctl reload apache2" after configuring, otherwise these changes will not be applied.
