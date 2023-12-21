@@ -1,5 +1,16 @@
 # Linux
 
+- [Linux](#linux)
+  - [Bash (Bourne Again Shell) An Interface that Runs Commands](#bash-bourne-again-shell-an-interface-that-runs-commands)
+    - [Commands](#commands)
+  - [How To Run a Script](#how-to-run-a-script)
+    - [Script Specific Commands](#script-specific-commands)
+      - [Additional Script Notes](#additional-script-notes)
+  - [Using User Data](#using-user-data)
+    - [Additional General Notes](#additional-general-notes)
+  - [Example Script](#example-script)
+
+
 ## Bash (Bourne Again Shell) An Interface that Runs Commands<br>
 ### Commands
 - uname -a = displays all system information
@@ -53,16 +64,18 @@
 - sudo systemctl restart nginx = restarts nginx which we do if we have changed the configurations and want to apply
 - sudo systemctl enable nginx = starts process/service automatically at boot
 
+#### Additional Script Notes
 - Add "sudo DEBIAN_FRONTEND=noninteractive" in front of upgrade command and any installation commands to avoid any user interaction
 - To copy a file "scp -i ~/.ssh/my-ssh-key LOCAL_FILE_PATH USERNAME@IP_ADDRESS:~" so an example is "scp -i ~/.ssh/tech242.pem ~/Documents/sendthisover.txt ubuntu@18.202.234.49:~"
 - To copy a folder "scp -r -i ~/.ssh/tech242.pem ~/Desktop/Test-Folder ubuntu@3.254.95.144:~"
 
-## User Data
-- When creating instance, at the bottom open up advanced details.
-- Go right to the bottom and copy and paste (or upload script file) 
+## Using User Data
+1. When creating instance, at the bottom open up advanced details.
+2. Go right to the bottom and copy and paste (or upload script file) 
+3. 
   ![User Data Screenshot](../README_images/User_Data_Screenshot.jpg)
 
-## Additional Notes
+### Additional General Notes
 - ~ is a tilda and means home directory
 - / means root and root is higher than home directory
 - Absolute Path starts at the root directory
@@ -74,6 +87,9 @@
 
 scp -r -i ~/.ssh/tech242.pem /Users/jackiethompson/Documents/ForCloud/Documents/app-code/jsonvoorhees-java-atlas-app ubuntu@ec2-3-254-95-144.eu-west-1.compute.amazonaws.com:~
 
+
+## Example Script
+```
 #!/bin/bash
 
 # update & upgrade
@@ -171,3 +187,5 @@ sudo a2ensite reverse-proxy
 
 # Reload Apache to apply changes
 sudo systemctl reload apache2
+
+```

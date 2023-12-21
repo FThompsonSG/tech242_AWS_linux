@@ -74,6 +74,7 @@ sudo a2enmod proxy_http
 echo ""
 echo "Apache modules enabled"
 echo ""
+sudo systemctl reload apache2
 
 # Create a virtual host configuration file by re-write
 VHOST_CONF="/etc/apache2/sites-available/000-default.conf"
