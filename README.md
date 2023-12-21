@@ -5,6 +5,7 @@
   - [Day 2 \& 3 - Linux and Bash](#day-2--3---linux-and-bash)
   - [Day 4 - Writing and Running First Shell Script](#day-4---writing-and-running-first-shell-script)
   - [Day 5 - Automating Shell Script](#day-5---automating-shell-script)
+- [Week 2 - 1 and 2 Tier Deployment](#week-2---1-and-2-tier-deployment)
 
 
 ## Day 1 - Intro to Cloud & AWS
@@ -21,7 +22,13 @@
 
 ## Day 4 - Writing and Running First Shell Script
 
-[Linux README](linux/README.md) Lines 70 - 126
+[Linux README](linux/README.md) Lines 46 - 65
 
 ## Day 5 - Automating Shell Script
 
+[Linux README](linux/README.md) Lines 72 - 78
+
+# Week 2 - 1 and 2 Tier Deployment
+
+[AWS - AMIs](aws/README.md) Lines 31 - 57
+[Apache Reverse Proxy](reverse_proxy/README.md)
