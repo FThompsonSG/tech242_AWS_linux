@@ -27,7 +27,7 @@
 ![Adding Internet Gateway To Route Table Screenshot](<../../README_images/Adding Internet Gateway To Route Table Screenshot.jpg>)
 
 8. Check VPC set up correctly
-   
+
 9.  Set up DB VM - Only difference is create new security group, select your VPC, private subnet and disable Auto-assign public IP. Select the ssh Source type to be My IP and input a new security group rule for MYSEQL with Source type of Anywhere.
-    
+
 10. Set up app VM - Only difference is create new security group, select your VPC, public subnet and enable Auto-assign public IP. Select the ssh Source type to be My IP and input a new security group rule for necessary ports with Source type of Anywhere.
