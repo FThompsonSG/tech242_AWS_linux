@@ -1,13 +1,22 @@
 ## Install AWS command line interface and check version
-sudo apt install awscli -y
+echo "Installing AWS Command Line Interface..."
+echo ""
+sudo DEBIAN_FRONTEND=noninteractive apt install awscli -y
+echo ""
+echo "AWS Command Line Interface installed."
+echo ""
+echo "Confirming AWS Command Line Interface version..."
+echo ""
 aws --version
+echo ""
 
 ## Logging in to AWS
+echo "Configuring AWS..."
+echo ""
 aws configure
-AWS Access Key ID: 
-AWS Secret Access Key:
-default region name: eu-west-1
-default output format: json
+echo ""
+echo "AWS configured successfully"
+echo ""
 
 ## List all buckets
 aws s3 ls
