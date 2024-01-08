@@ -1,4 +1,5 @@
 # Auto Scaling Groups
+## AWS offers Auto Scaling groups to automatically adjust the number of VM instances based on defined scaling policies.
 
 [Auto Scaling Groups Diagram](<../README_images/Auto Scaling Groups Diagram.pages>)
 
@@ -16,7 +17,7 @@
 ![Auto Scaling Creation - Page 1](<../README_images/Auto Scaling Creation - Page 1.jpg>)
 
 6. On the next page scroll down to Network and tick the Availability Zones and subnets from the dropdown menu. Once done, click next.
-   ![Availability Zones and Subnets](<../README_images/Availability Zones and Subnets Screenshot.jpg>)
+![Availability Zones and Subnets](<../README_images/Availability Zones and Subnets Screenshot.jpg>)
 
 7. On the next page click Attach to a new load balancer, make sure Application Load Balancer is selected, name it appropriately and make sure it is internet facing. Then create a new target group under Default routing and name it appropriately. Under health checks check the box for Turn on Elastic Load Balancing health checks then click next.
 
@@ -29,3 +30,7 @@
 11. You should then be able to go to your instances and see that 2 will be running. If you go to Load Balancers, you can select yours, copy your DNS name into your browser and it should be working.
 
 12. To delete you should delete your load balancer first, then target group and finally the auto scaling group.
+
+- Launch Template: Can launch instance from AMI with additional details included e.g. user data, security group etc
+- Scaling Policy: Metric, threshold, min desired and max amount of VMs
+- Load Balancer: Chooses VM based on health and load
