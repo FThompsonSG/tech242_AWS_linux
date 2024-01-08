@@ -20,3 +20,20 @@
 
 6. You can maximise as specific metric window, set it to update more frequently e.g. every minute and customise the period it currently shows you.
    ![CPU Utilization Metric Window](<../README_images/Dashboard CPU Utilization Screenshot.jpg>)
+
+## Creating an Alarm
+7. To create an alarm, on the instance screen once you have created your dashboard then select the three lines on the left hand side of the screen selet Alarms then All alarms.
+
+8. Select Create alarm, Select metric, select EC2, then  Per-Instance Metrics and paste in your instance ID, select CPUUtilization and click Select metric.
+
+9. On the next screen under Specify metric and conditions, select Average for Statistic and confirm the period e.g. 1 minute.
+
+10. Within Conditions choose Static for the Threshold type, select Greater and then input the desired threshold.
+
+11. Choose breach threshold and then hit next.
+
+12. On the next screen under Notification, make sure In alarm is selected and create SNS topic. Give it a name and then enter your email address. Hit next.
+
+13. Enter name and desription for the alarm, click Preview and create and then Create alarm.
+
+   ![Alarm Email Notification](<../README_images/Alarm Email Notification Screenshot.jpg>)
