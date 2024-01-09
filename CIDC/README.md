@@ -46,6 +46,8 @@ In CDE, code changes that pass automated testing and quality checks are automati
 Unlike CD, where every change goes directly to production, CDE introduces a manual approval step before code changes are promoted from the staging environment to the production environment.
 CDE is characterized by the ability to deliver changes to a production-like environment quickly, but the final decision to release those changes to production is made by a human operator or team.
 
+![Jenkins CICD Diagram](<../README_images/Jenkinds CICD Diagram.jpg>)
+
 ## Jenkins
 Jenkins is an open-source automation server commonly used for building, testing, and deploying software projects. It is a widely adopted tool in the field of Continuous Integration and Continuous Delivery (CI/CD) to automate various aspects of the software development lifecycle. Jenkins provides a flexible and extensible platform for automating repetitive tasks and integrating various tools and technologies.
 
