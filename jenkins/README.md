@@ -31,3 +31,10 @@
 4. In POM type path to POM e.g. springapi/pom.xml
 5. Click save
 ![Build Steps Screenshot](<../README_images/Jenkins Build Steps Screenshot.jpg>)
+
+## Web Hook
+1. On your job, go to configure and then down to Build Triggers and check GitHub hook trigger for GITScm polling
+![Jenkins Webhook Configuration Screenshot](<../README_images/Jenkins Webhook Trigger Screenshot.jpg>)
+2. On GitHub go to the settings on your repo, select Webhooks on the left and then click Add webhook.
+3. For the Payload URL enter the IP and port of Jenkins, followed by github-webhook/ and finally click Add webhook.
+![GitHub Webhook Configuration Screenshot](<../README_images/GitHub Webhook Config Screenshot.jpg>)
