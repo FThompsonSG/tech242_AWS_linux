@@ -22,6 +22,7 @@
 6. Enter a description of what the key is for
 7. Check Enter directly, then Add and copy and paste entire contents of private key
 8. Changes Branches to build from master to main
+![Source Code Management Screenshot](<../README_images/Jenkins Source Code Management Screenshot.jpg>)
 
 ## Build Steps
 1. Click Invoke top-level Maven targets
@@ -29,3 +30,4 @@
 3. Click on advanced drop down
 4. In POM type path to POM e.g. springapi/pom.xml
 5. Click save
+![Build Steps Screenshot](<../README_images/Jenkins Build Steps Screenshot.jpg>)
