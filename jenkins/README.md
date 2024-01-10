@@ -38,3 +38,6 @@
 2. On GitHub go to the settings on your repo, select Webhooks on the left and then click Add webhook.
 3. For the Payload URL enter the IP and port of Jenkins, followed by github-webhook/ and finally click Add webhook.
 ![GitHub Webhook Configuration Screenshot](<../README_images/GitHub Webhook Config Screenshot.jpg>)
+
+## Creating Job To Merge Dev To Main
+NB. Have not finished configuring the job for job 2.
