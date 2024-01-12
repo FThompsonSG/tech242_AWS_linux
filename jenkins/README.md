@@ -40,4 +40,10 @@
 ![GitHub Webhook Configuration Screenshot](<../README_images/GitHub Webhook Config Screenshot.jpg>)
 
 ## Creating Job To Merge Dev To Main
-NB. Have not finished configuring the job for job 2.
+1. Git Publisher
+2. Create job, check Discard old build and select 3 as the max.
+3. Check GitHub project and enter the HTTPS URL.
+4. Under Source Code Management click Git, enter the SSH URL and select your credentials. Enter dev as the Branch Specifier under Branches to build. Click on Additional Behaviours with the Name of repository as origin and Branch to merge to as main. 
+5. Go down to Post-build Actions, check Push Only If Build Succeeds and Merge Results, click Add Branch and set the branch to push main and target remote name origin.
+![Job 2 Merge Post Build Actions](<../README_images/Jenkins Job 2 Merge Post Build Actions Screenshot.jpg>)
+6. Go to job 1, click configure and go down to post build actions. Attach job 1 to job 2, Post build actions trigger only if build is stable. Job 2 merge Go to job 1 -> configure -> post build actions choose job 2
