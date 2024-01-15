@@ -39,11 +39,26 @@
 3. For the Payload URL enter the IP and port of Jenkins, followed by github-webhook/ and finally click Add webhook.
 ![GitHub Webhook Configuration Screenshot](<../README_images/GitHub Webhook Config Screenshot.jpg>)
 
-## Creating Job To Merge Dev To Main
-1. Git Publisher
+## Creating Job 2 To Merge Dev To Main
+1. Create job, check Discard old build and select 3 as the max.
+2. Check GitHub project and enter the HTTPS URL.
+3. Under Source Code Management click Git, enter the SSH URL and select your credentials. Enter dev as the Branch Specifier under Branches to build. Click on Additional Behaviours with the Name of repository as origin and Branch to merge to as main. 
+4. Go down to Post-build Actions, check Push Only If Build Succeeds and Merge Results, click Add Branch and set the branch to push main and target remote name origin.
+![Job 2 Merge Post Build Actions](<../README_images/Jenkins Job 2 Merge Post Build Actions Screenshot.jpg>)
+5. Got to job 1, scroll down to Post-build actions, Add post-build actions, enter the name of job 2 and check Trigger only if build is stable.
+![Attach Job 2 To Job 1](<../README_images/Jenkins Attach Job 2 to Job 1 Screenshot.jpg>)
+
+## Creating Job 3 To Add Main Branch Code To Instance And Deploy
+1. Ensure you have a working instance running first.
 2. Create job, check Discard old build and select 3 as the max.
 3. Check GitHub project and enter the HTTPS URL.
-4. Under Source Code Management click Git, enter the SSH URL and select your credentials. Enter dev as the Branch Specifier under Branches to build. Click on Additional Behaviours with the Name of repository as origin and Branch to merge to as main. 
-5. Go down to Post-build Actions, check Push Only If Build Succeeds and Merge Results, click Add Branch and set the branch to push main and target remote name origin.
-![Job 2 Merge Post Build Actions](<../README_images/Jenkins Job 2 Merge Post Build Actions Screenshot.jpg>)
-6. Go to job 1, click configure and go down to post build actions. Attach job 1 to job 2, Post build actions trigger only if build is stable. Job 2 merge Go to job 1 -> configure -> post build actions choose job 2
+4. Under Build Environment check SSH Agent and select the .pem file relating to the instance.
+![Job 3 SSH Agent Screenshot](<../README_images/Jenkins Job 3 SSH Agent Screenshot.jpg>)
+5. Scroll down to Build Steps, Add build step, Execute shell and then input script.
+
+ls -al
+scp -o StrictHostKeyChecking=no -r ../fergus-jsonvh-job1-ci-test/springapi ubuntu@ec2-18-201-195-95.eu-west-1.compute.amazonaws.com:~
+
+scp -o StrictHostKeyChecking=no -r ../fergus-jsonvh-job1-ci-test/TestResults ubuntu@ec2-18-201-195-95.eu-west-1.compute.amazonaws.com:~
+
+ssh -o StrictHostKeyChecking=no ubuntu@ec2-18-201-195-95.eu-west-1.compute.amazonaws.com "cd ~/springapi; mvn clean package spring-boot:start"
