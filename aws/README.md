@@ -55,3 +55,11 @@ AMIs (Amazon Machine Images) are like a snapshot or a template of a virtual comp
 3. A pop up will open and you need to click delete snapshot then follow the hyperlink to open the snapshots in a new tab, this will lead you to the specific snapshot automatically
 4. Go back to the AMI and confirm deregister.
 5. Go back to the snapshot page, check the box and under actions click delete and confirm.
+
+# Classic Ports To Know
+- 22 = SSH (Secure Shell) - log in to Linux instance
+- 21 = FTP (File Transfer Protocol) - upload files into a file share
+- 22 = SFTP (Secure File Transfer Protocol) - upload files using SSH
+- 80 = HTTP - access unsecured websites
+- 443 = HTTPS - access secured websites
+- 3380 = RDP (Remote Desktop Protocol) - log into a Windows instance
