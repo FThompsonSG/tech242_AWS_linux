@@ -63,3 +63,39 @@ AMIs (Amazon Machine Images) are like a snapshot or a template of a virtual comp
 - 80 = HTTP - access unsecured websites
 - 443 = HTTPS - access secured websites
 - 3380 = RDP (Remote Desktop Protocol) - log into a Windows instance
+
+# EC2 Instance Purchasing Options
+
+1. On-Demand Instances
+Usage: Ideal for short-term, irregular workloads that cannot be interrupted.
+Cost: Pay per second or per hour, depending on the instance type, with no long-term commitment.
+Flexibility: Start and stop at any time; no upfront payment.
+
+2. Savings Plans
+Usage: Suitable for steady-state usage.
+Cost: Offers significant savings over On-Demand pricing in exchange for a commitment to a consistent amount of usage (measured in $/hour) for a 1 or 3-year period.
+Flexibility: Two types available - Compute Savings Plans (flexible across instance family, region, OS, or tenancy) and EC2 Instance Savings Plans (specific to instances within a family in a region).
+
+3. Reserved Instances (RIs)
+Usage: Best for applications with steady-state needs.
+Cost: Up to 75% off the On-Demand price. Pricing varies based on the term length, payment option, and instance type.
+Flexibility: Options include Standard RIs (significant discount, best for steady, predictable usage) and Convertible RIs (lower discount, can change the RI attributes).
+Commitment: 1-year or 3-year term, with payment options including All Upfront, Partial Upfront, or No Upfront.
+
+4. Spot Instances
+Usage: Ideal for flexible, stateless, fault-tolerant, or time-insensitive tasks.
+Cost: Up to 90% off the On-Demand price. Pricing fluctuates based on supply and demand.
+Flexibility: Can be terminated by AWS with a two-minute notification when AWS needs the capacity back.
+Risk: Higher risk of interruption compared to other options.
+
+5. Dedicated Hosts
+Usage: Necessary for regulatory requirements that may not support multi-tenant virtualization, or for licensing that doesn’t support cloud deployments.
+Cost: Pay for the entire physical server. Can be more expensive than other options.
+Flexibility: Physical EC2 server dedicated for your use.
+Commitment: Available on-demand (hourly) or as a reservation for up to 70% off the On-Demand price.
+
+6. Dedicated Instances
+Usage: Similar to Dedicated Hosts but without the allocation of a physical server.
+Cost: More expensive than standard instances but cheaper than Dedicated Hosts.
+Flexibility: Instances run in a VPC on hardware that's dedicated to a single customer.
+Differences from Dedicated Hosts: Instance capacity is not guaranteed, and instances can’t be used to bring your own license (BYOL).
