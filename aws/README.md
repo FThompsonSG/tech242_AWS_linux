@@ -99,3 +99,21 @@ Usage: Similar to Dedicated Hosts but without the allocation of a physical serve
 Cost: More expensive than standard instances but cheaper than Dedicated Hosts.
 Flexibility: Instances run in a VPC on hardware that's dedicated to a single customer.
 Differences from Dedicated Hosts: Instance capacity is not guaranteed, and instances can’t be used to bring your own license (BYOL).
+
+# AWS Load Balancers
+
+1. Application Load Balancer
+- HTTP/HTTPS/gRPC protocols (Layer 7)
+- HTTP Routing features
+- Static DNS (URL)
+
+2. Network Load Balancer
+- TCP/UDP protocols (Layer 4)
+- High Performance: millions of requests per second
+- Static IP through Elastic IP
+
+3. Gateway Load Balancer
+- GENEVE Protocol on IP Packets (Layer 3)
+- Route Traffic to Firewalls that you manage on EC2 instances
+- Intrusion detection
+
