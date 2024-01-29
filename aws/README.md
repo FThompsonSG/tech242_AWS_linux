@@ -146,3 +146,64 @@ Differences from Dedicated Hosts: Instance capacity is not guaranteed, and insta
 - Better than Snowball if you transfer more than 10PB
 
 AWS OpsHub is a UI for managing Snowball devices
+
+# AWS Storage Gateway
+
+- Bridge between on-premises data and cloud data in S3
+- Use cases: Disaster recovery, backup & restore and tiered storage
+
+# AWS Databases
+
+## AWS RDS (Relational Database Service)
+- A managed DB service using SQL
+- Allows you to creates DBs in the cloud that are managed by AWS
+  - Postgres
+  - MySQL
+  - MariaDB
+  - Oracle
+  - Microsoft SQL Server
+  - Aurora (AWS Proprietary database)
+### RDS vs Deploying DB on EC2
+- Automated provisioning, OS patching
+- Continuous backups and restore to specific timestamp (Point in Time Restore!)
+- Monitoring dashboards
+- Read replicas for improved read performance
+- Multi AZ setup for disaster recovery
+- Maintenance windows for upgrades
+- Scaling capability (vertical and horizontal)
+- Storage backed up by EBS
+- You CANNOT SSH into your instances
+
+## Amazon Aurora
+- Proprietary technology from AWS (not open sourced)
+- PostgreSQL and MySQL are both supported
+- AWS cloud optimised and claims 5x performance improvement over MySQL on RDS and 3x of Postgres on RDS
+- Storage automatically grows in increments of 10GB up to 128TB
+- Cost 20% more than RDS but is more efficient
+- Not in the free tier
+### Aurora Serverless
+- Automated database instatiation and auto-scaling based on actual usage
+- PostgreSQL and MySQL both supported
+- No capacity planning needed
+- Least management overhead
+- Pay per second, can be more cost effective
+- Use cases: Good for infrequent, intermittent or unpredictable workloads
+
+## RDS Deployments
+
+### Read Replicas
+- Scale the read workload of your DB
+- Can create up to 15 Read Replicas
+- Data is only written to the main DB
+
+### Multi-AZ
+- Failover in case of AZ outage (high availability)
+- Creates replica in another AZ which is only used if the main DB fails
+- Data is only read/written to the main DB
+- Can only have 1 other AZ as failover
+
+### Multi-Region (Read Replicas)
+- Creates Read Replicas in other regions that our application can read, only writes to main DB
+- Disaster recovery in case of region issue
+- Local performance for global reads
+- Replication cost
