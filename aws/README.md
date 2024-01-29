@@ -117,3 +117,32 @@ Differences from Dedicated Hosts: Instance capacity is not guaranteed, and insta
 - Route Traffic to Firewalls that you manage on EC2 instances
 - Intrusion detection
 
+# Snow Family
+## Highly secure, offline, protable devices to collect and process data at the edge and/or migrate data in and out of AWS
+
+1. Snowcone - Data Migration and Edge Computing
+- Small, portable computing anywhere, rugged & secure and can withstand harsh environments
+- Light
+- Used in a space-constrained environment
+- Must provide own battery/cables
+- Can be sent back to AWS offline or connect it to the internet ans use AWS DataSync to send data
+  - Snowcone: 8TB of HDD storage
+  - Snowcone SSD: 14TB of HDD storage
+- Use cases: Edge computing, stroage and data transfer
+
+2. Snowball Edge - Data Migration and Edge Computing
+- Physical transport solution intended to move TBs or PBs in or out of AWS
+- Alternative to moving data over a network
+- Pay per data transfer job (Data transfer in to Amazon S3 is free)
+- Provides block storage and Amazon S3 compatible object storage
+  - Snowball Edgee Storage Optimised: 80 TB HDD capacity
+  - Snowball Edge Compute Optimised: 42 TB of HDD or 28TB NVMe capacity
+- Use cases: Large data cloud migrations, DC commission or disaster recovery
+
+3. Snowmobile - Data Migration
+- Transfer exabytes of data (1EB = 1,000PB = 1,000,000TBs)
+- Each Snowmobile has 100PB capacity (can use multiple in parallel)
+- High security: temperature controlled, GPS and 24/7 video surveillance
+- Better than Snowball if you transfer more than 10PB
+
+AWS OpsHub is a UI for managing Snowball devices
