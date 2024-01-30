@@ -207,3 +207,40 @@ AWS OpsHub is a UI for managing Snowball devices
 - Disaster recovery in case of region issue
 - Local performance for global reads
 - Replication cost
+
+## Amazon ElastiCache
+- ElastiCache is to get managed Redis or Memcached
+- Caches are in-memory DBs with high performance and low latency
+- Helps reduce load off DBs for read intensive workloads
+- AWS handles OS maintenance/patching, optimisations, setup, configuration, monitoring, failure recovery and backups.
+
+## DynamoDB
+- A fully managed, highly available DB with replication across 3 AZs
+- NoSQL DB, not a relational DB
+- Scales to massive workloads, distributed "serverless" DB
+- Millions of request per seconds, trillions of rows, 100s of TB of storage
+- Fast and consistent performance
+- Single-digit millisecond latency, low latency retrieval
+- Integrated with IAM for security, authorisation and admin
+- Low cost and auto scaling capabilities
+- Standard and IA Table Class
+- Is a key/value DB
+### DynamoDB Acceleraor - DAX
+- Fully managed in-memory cache for DynamoDB
+- 10 x performance improvement, single digit millisecond latency to microseconds latency when accessing DynamoDB tables
+- Secure, HS and HA
+- Difference with ElastiCache at the CCP level: DAX is only used for and integrated with DynamoDB.
+### DynamoDB - Global Tables
+- You can make a DynamoDB table accessible with low latency in multiple regions
+- Active-Active replication (read/write to any AWS region)
+
+## Redshift
+- Based on PostgreSQL but not used for OLTP (online transaction processing)
+- It's OLAP - online analytical processing (analytics and data warehousing)
+- Loads data once every hour, not every second
+- 10x better performance than other data warehouses and scales to PBs of data
+- Columnar storage of data (instead of row based)
+- Massive Parallel Query Execution (MPP)
+- Pay as you go based on the instances provisioned
+- Has a SQL interface for performing queries
+- BI (business intelligence) tools such as AWS Quicksight or Tableau integrate with it
