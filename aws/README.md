@@ -488,3 +488,33 @@ AWS OpsHub is a UI for managing Snowball devices
 - You can therefore deploy infrastructure and application runtime code together
   - Great for Lambda functions
   - Great for Docker containers in ECS / EKS
+
+# AWS Elastic Beanstalk
+- PaaS
+- Developer centric view of deploying an application on AWS
+- Uses all the components we've seen before but all in one view
+- Still have full control over configuration
+- Free but you pay for the underlying instances
+- Managed service
+  - Instance configuration / OS handled by Beanstalk
+  - Deployment strategy is configurable but performed by Elastic Beanstalk
+  - Capacity provisioning
+  - Load balancing and auto-scaling
+  - Application health-monitoring and responsiveness
+- Only dev responsibility is application code
+- Three architectural models:
+  - Single instance deployment: good for development
+  - LB and ASG: great for production or pre-production web applications
+  - ASG only: great for non-web apps in production
+
+# AWS CodeDeploy
+- Hybrid service to reploy applications automatically
+- Works with EC2 instances AND On-Premises servers
+- Servers/instances must be provisioned and configured ahead of time with the CodeDeploy agents
+
+# AWS CodeCommit
+- AWS' competing product to GitHub
+- Benefits:
+  - Full managed
+  - Scalable and highly available
+  - Private, secured and integrated with AWS
