@@ -455,3 +455,36 @@ AWS OpsHub is a UI for managing Snowball devices
 - Use an API Gateway to expose Lambda functions as HTTP API
 - Use cases: Create thumbnails for images uploaded to S3 or run a serverless cron job
 
+# CloudFormation
+- A declarative way of outlinng your AWS indrastructure for any resources (most of them are supported)
+- For example, within a CloudFormation template you say:
+  - I want a security group
+  - I was two EC2 instances using this security group
+  - I want an S3 bucket
+  - I want a load balancer
+- Then CloudFormation creates these for you, in the right order, with the exact configuration you specify
+## Benefits
+- Infrastructure as code
+  - No resources are manually created which is excellent for control
+  - Changes to the infrastructure are reviewd through code
+- Cost
+  - Each resource with the stack is tagged with an identifier so you can easily see how much a stack costs you
+  - You can estimate the costs of your resources using the CloudFormation template
+  - Savings strategy: As a developer, you could automate the deletion of templates at 5pm and recreation at 8am safely
+- Productivity
+  - Ability to destroy and recreate an infrastructure on the cloud on the fly
+  - Automated generation of Diagram for your templates
+  - Declarative programming (no need to figure out ordering and orchestration)
+- Don't Reinvent the Wheel
+  - Leverage existing templates on the web
+  - Leverage the documentation
+- Supports (almost) all AWS Resources
+  - Everything on this course is supported
+  - You can use "custom resources" for resources that are not supported
+
+# AWS CDK (Cloud Development Kit)
+- Define your cloud infrastructure using a familiar language
+- The code is "compiled" into a CloudFormation template (JSON/YAML)
+- You can therefore deploy infrastructure and application runtime code together
+  - Great for Lambda functions
+  - Great for Docker containers in ECS / EKS
