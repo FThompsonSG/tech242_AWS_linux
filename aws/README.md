@@ -407,4 +407,51 @@ AWS OpsHub is a UI for managing Snowball devices
   - The container image must implement the Lambda Runtime API
   - ECS / Fargate is preferred to running arbitrary Docker images
 
+# Amazon API Gateway
+- Fully managed service for developers to easily create, publish, maintain, monitor and secure APIs
+- Serverless and scalable
+- Supports RESTful APIs and WebSocket APIs
+- Support for security, user authentication, API throttling, API keys, monitoring etc...
+- Use case: building a serverless API
+  Client <REST API> API Gateway <PROXY REQUESTS> Lambda <CRUD> DynamoDB
+
+# AWS Batch
+- Fully managed batch processing at any scale
+- Efficiently run 100,000s of computing batch jobs on AWS
+- A "batch" job is a job with a start and an end (as opposed to continuous)
+- Batch will dynamically launch EC2 instances or Spot Instances
+- AWS Batch provisions the right out of compute/memory
+- You submit or schedule batch jobs and AWS Batch does the rest
+- Batch jobs are defined as Docker images and run on ECS
+- Helpful for cost optimisations and focusing less on infrastructure
+
+# Amazon Lightsail
+- Virtual servers, storage, databases and networking
+- Low and predictable pricing
+- Simpler alternative to using EC2, RDS, ELB, EBS Route 53 etc...
+- Great for people with little cloud experience
+- Can setup notifications and monitoring of your Lightsail resources
+- Has HA but not auto-scaling and limited AWS integrations
+- Use cases:
+  - Simple web applications (has templates for LAMP, Nginx, MEAN, Node.js)
+  - Websites (has templates for WordPress, Magento, Plesk, Joomla)
+  - Dev/Test environment
+
+# Other Computer Summary
+- Docker: container technology to run applications
+- ECS: run Docker containers on EC2 instances
+- Fargate: run Docker containers without provisioning the infrastructure (serverless)
+- ECR: private Docker images repository
+- Batch: run batch jobs on AWS across managed EC2 instances
+- Lightsail: predictable and low priving for simple application and DB stacks
+
+# Lambda Summary
+- Lambda is serverless, FaaS, seamless scaling and reactive
+- Lambda billing:
+  - By the time run x by the RAM provisioned
+  - By the number of invocations
+- Language support: many programming languages except (arbitrary) Docker
+- Invocation time up to 15 minutes
+- Use an API Gateway to expose Lambda functions as HTTP API
+- Use cases: Create thumbnails for images uploaded to S3 or run a serverless cron job
 
