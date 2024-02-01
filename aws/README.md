@@ -50,7 +50,7 @@ AMIs (Amazon Machine Images) are like a snapshot or a template of a virtual comp
 
 # AMI Deregistering and Snapshot Deletion
 
-1. Got to the AMIs by clicking AMIs on the left hand side of the screen under Images.
+1. Go to the AMIs by clicking AMIs on the left hand side of the screen under Images.
 2. Find your specific AMI from the list, check the box and under the actions tab click deregister.
 3. A pop up will open and you need to click delete snapshot then follow the hyperlink to open the snapshots in a new tab, this will lead you to the specific snapshot automatically
 4. Go back to the AMI and confirm deregister.
@@ -244,3 +244,167 @@ AWS OpsHub is a UI for managing Snowball devices
 - Pay as you go based on the instances provisioned
 - Has a SQL interface for performing queries
 - BI (business intelligence) tools such as AWS Quicksight or Tableau integrate with it
+### Redshift Serverless
+- Automatically provisions and scales data warehouse unerlying capacity
+- Run analytics workloads without managing data warehouse infrastructure
+- Pay only for what you use (saves cost)
+- Use cases: Reporting, dashboarding applications, real-time analytics etc...
+
+## Amazon EMR (Elastic MapReduce) - Not a Database
+- Helps create Hadoop Clusters (Big Data) to analyze and process vast amounts of data
+- The clusters can be made up of hundreds of EC2 instances
+- Also supports Apache Spark, HBase, Presto, Flink...
+- Takes care of all the provisioning and configuration of the instances
+- Auto-scaling and integrated with Spot instances
+- Use cases: Data processing, machine learning, web indexing, big data...
+
+## Amazon Athena
+- Serverless query service to perform analytics against S3 objects
+- Uses standard SQL language to query the files
+- Supports CSV, JSON, ORC, Avro and Parquet
+- Use cases: BI/analytics/reporting, analyse and query VPC Flow Logs, ELB Logs, CloudTrail trails etc...
+
+## Amazon QuickSight
+- Serverless machine learning-powered BI service to create interactive dashboards
+- Fast, automatically scalable, embeddable with per-session pricing
+- Integrated with RDS, Aurora, Athena, Redshift, S3 etc...
+- Use cases: Business analytics, building visualisations, performing ad-hoc analysis and getting business insights using data
+
+## DocumentDB
+- Whereas Aurora is an "AWS-implementation" of PostgreSQL/MySQL, DocumentDB is the same for MongoDB(NoSQL database)
+- MongoDB is used to store, query and index JSON data
+- Similar deployment concepts to Aurora so it's fully managed, HA with replication across 3 AZs
+- DocumentDB storage automatically grows in increments of 10GB
+- Automatically scales to workloads with millions of requests per second
+
+## Amazon Neptune
+- Fully managed graph database
+- A popular graph dataset would be a social network
+- HA across 3 AZs with up to 15 read replicas
+- Build and run applications working with highly connected datasets, optimised for these complex and hard queries
+- Can store up to billions of relations and query the graph with milliseconds latency
+- Use cases: Knowledge graphs (Wikipedia), fraud detection, recommendation engines, social networking etc...
+
+## Amazon Timestream
+- Fully managed, fast, scalable, serverless time series DB
+- Automatically scales up/down to adjust capacity
+- Store and analyse trillions of events per day
+- 1000s times faster and 1/10th the cost of relational DBs
+- Built-in time series analytics functions (helps you identify patterns in your data in near real time)
+
+## Amazon QLDB (Quantum Ledger Database)
+- A ledger is a book recording financial transactions
+- Full managed, serverless, HA with replcation across 3 AZs
+- Used to review history of all the changes made to your application data over time
+- Immutable system: No entry can be removed or modified, cryptographically verifiable
+- 2-3x better performance than common ledger blockchain frameworks, manipulate data using SQL
+- Difference with Amazon Managed Blockchain: no decentralisation component, in accordance with financial regulation rules
+
+## Amazon Managed Blockchain
+- Blockchain makes it possible to build applications where multiple parties can execute transactions without the need for a trust, central authority (decentralised)
+- AMB is a managed service to:
+  - Join public blockcahain networks
+  - Create your own scalable private network
+- Compatible with the frameworks Hyperledger Fabric and Ethereum
+
+## AWS Glue
+- Managed extract, transform and load (ETL) service
+
+## DMS (Data Migration Service)
+- Quickly and securely migrate DBs to AWS and is resilient and self healing
+- The source DB remains available during migration
+- Supports:
+  - Homogeneous migrations e.g. Oracle to Oracle
+  - Heterogenous migrations e.g. Microsoft SQL Server to Aurora
+
+# Databases & Analytics Summary in AWS (For AWS CCP Exam)
+- Relational Databases: OLTP - RDS and Aurora (SQL)
+- Difference between Multi-AZ, Read Replicas and Multi-Region
+- In-memory Databse: ElastiCache (high performance and low latency)
+- Key/Value Database: DynamoDB (serverless) and DAX or DynamoDB Accelerator (cache for DynamoDB)
+- Warehouse: OLAP - Redshift (SQL)
+- Hadoop Cluster: EMR
+- Athena: Query data on Amazon S3 (serverless and SQL)
+- QuickSight: Dashboards on your data (serverless)
+- DocumentDB: "Aurora for MongoDB" (JSON - NoSQL database)
+- Amazon QLDB: Financial Transactions Ledger (immutable journal, cryptographically verifiable)
+- Amazon Managed Blockchain: Managed Hyperledger Fabric and Ethereum blockchains
+- Glue: Managed ETL (Extract Transform Load) and Data Catalogue service
+- Database Migration: DMS
+- Neptune: Graph database
+- Timestream: Time-series database
+
+# Docker (not on exam)
+- Software development platform to deploy apps
+- Apps are packaged in containers that can be run on any OS
+- Apps run the same, regardless of where they're run
+  - Any machine
+  - No compatibility issues
+  - Predictable behaviour
+  - Less work
+  - Easier to maintain and deploy
+  - Works with any language, any OS, any technology
+- Scales containers up and down very quickly (seconds)
+
+## Where Docker images are stored?
+- Docker images are stored in Docker Repositories
+  - Public: Docker Hub
+    - Find bases images for many tecnologies or OS such as Ubuntu, MySQL, NodeJS, Java etc...
+  - Private: Amazon ECR (Elastic Container Registry)
+
+## Docker vs Virtual Machines
+- Dock is "sort of" a virtualisation technology, but not exactly
+- Resources are shared with the host => many containers on one server
+
+# ECS (Elastic Container Service)
+- Launch Docker containers on AWS
+- You must provision and maintain the infrastructure (the EC2 instances)
+- AWS takes care of starting/stopping containers
+- Has integration with the Application Load Balancer
+
+# Fargate
+- Launch Docker containers on AWS
+- You DO NOT provision the infrastructure (no EC2 instances to manage) - simpler.
+- Serverless offering
+- AWS just runs containers for you based on your CPU/RAM needs
+
+# ECR (Elastic Container Registry)
+- Private Docker registry on AWS
+- This is where you store your Docker images so they can be run by ECS and Fargate
+
+# Serverless
+- A new paradigm in whch the developers don't have to manage servers anymore
+- They just deploy code/functions
+- Initially serverless == Faas (Function as a Service)
+- Serverless was pioneered by AWS Lambda but now also includes anything that's managed: "database, messaging, storage etc."
+- There are servers but we don't manage, provision or see them.
+
+# Lambda
+- Virtual functions - no servers to manage
+- Limited by time - short executions
+- Run on-demand
+- Scaling is automated
+## Benefits
+- Easy pricing:
+  - Pay per request and compute time
+  - Free tier of 1,000,000 AWS Lambda requests and 400,000 GBs of compute time
+- Integrated with the whole AWS suit of services
+- Event-Driven: functions get invoked by AWS when needed
+- Integrated with many programming languages
+- Easy monitoring through AWS CloudWatch
+- Easy to get more resources per functions (up to 10GB of RAM)
+- Increeasing RAM will also improve the CPU and network
+## Language Support
+- Node.js (JavaScript)
+- Python
+- Java
+- C#
+- Golang
+- C# / Powershell
+- Ruby
+- Custom Runtime API (community supported, example Rust)
+- Lambda Container Image:
+  - The container image must implement the Lambda Runtime API
+  - ECS / Fargate is preferred to running arbitrary Docker images
+
+
