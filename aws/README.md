@@ -456,7 +456,7 @@ AWS OpsHub is a UI for managing Snowball devices
 - Use cases: Create thumbnails for images uploaded to S3 or run a serverless cron job
 
 # CloudFormation
-- A declarative way of outlinng your AWS indrastructure for any resources (most of them are supported)
+- A declarative way of outlinng your AWS infrastructure for any resources (most of them are supported)
 - For example, within a CloudFormation template you say:
   - I want a security group
   - I was two EC2 instances using this security group
@@ -518,3 +518,64 @@ AWS OpsHub is a UI for managing Snowball devices
   - Full managed
   - Scalable and highly available
   - Private, secured and integrated with AWS
+
+# AWS CodeBuild
+- Code building service in the cloud
+- Compiles source code, runs tests and produces packages that are ready to be deployed (e.g.by CodeDeploy)
+- Benefits:
+  - Full managed and serverless
+  - Continuously scalable and HA
+  - Secure
+  - Pay as you go pricing so only pay for the build time
+
+# AWS CodePipeline
+- Orchestrates the steps to have coe automatically pushed to production
+- Basis for CICD
+- Benefits:
+  - Fully managed and compatible with previously mentioned AWS services, alsoe 3rd party services e.g. GitHub and custom plugins
+  - Fast delivery and rapid updates
+
+# AWS CodeArtifact
+- Software packages depend on each other to be built (dependencies) and new ones are created
+- Storing and retrieving these dependencies is call artifact management
+- Traditionally you need to set a management system up yourself
+- CodeArtifact is a secure, scalable and cost-effective artifact management system for software development
+- Works with common dependency management tools such as Maven, Gradle etc
+- Developers and CodeBuild can retrieve dependencies straight from CodeArtifact
+
+# AWS CodeStar
+- Unified UI to easily manage software development activities in one place
+- Quick way to get started to correctly set up all the previous services
+- Can edit the code in the cloud using AWS Cloud9
+
+# AWS Cloud9
+- A cloud IDE used in the web browser
+- Allows collaboration in real time
+
+# AWS Systems Manager (SSM)
+- Helps you manage your EC2 and On-Premises systems at scale
+- Another Hybrid AWS service
+- Get operational insights about the state of your infrastructure
+- Suite of 10+ products
+- Most important features are:
+  - Patching automation for enhanced compliance
+  - Run commands across an entire fleet of servers
+  - Store parameter configuration with the SSM ParameterStore
+- Works for Linux, Windows, MacOS and Raspberry Pi OS (Raspbian)
+- SSM Agent is installed by default on Amazon Linux AMI and some Ubuntu AMI, otherwise we need to install it
+- If an instance cn't be controlled with SSM, it's probably an issue with the agent
+- Thanks to the SSM agent we can run commands, patch and configure our servers
+
+# Systems Manager - SSM Session Manager
+- Allows you to start a secure shell on your EC2 and on-premises servers
+- No SSH access, bastion hosts or SSH keys needed
+- No port 22 needed (better security)
+- Supports Linux, MacOS and Windows
+- Send session log data to S3 or CloudWatch logs
+
+# SSM Parameter Store
+- Secure storage for configurations and secrets
+- API keys, passwords, configurations...
+- Severless, scalable, durable, easy SDK
+- Control access permissions using IAM
+- Version tracking and encryption (optional
