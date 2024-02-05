@@ -672,3 +672,43 @@ AWS OpsHub is a UI for managing Snowball devices
 - Extend your VPC to more locations - "Extension of an AWS region"
 - Compatible with EC2, RDS, ECS, EBS, ElastiCache, Direct Connect etc...
 
+# Cloud Integration
+1. Synchronous communications (application to application)
+   - Can be problematic if there are sudden spikes in traffic
+2. Asynchronous/event based (application to queue to application)
+
+# Amazon SQS (Simple Queue Service)
+- Producer -> send message -> SQS Queue -> poll message -> consumer
+## Standard Queue
+- Oldest AWS offering (over 10 years old)
+- Full managed service (serverless) and used to decouple applications
+- Scales from 1 message per second to 10,000s per second
+- Default rentention of messages: 4 days to a max of 14
+- No limit to how many messages can be in the queue
+- Messages are deleted after they're read by consumers
+- Low latency (<10ms on public and receive)
+- Consumers share the work to read messages and scale horizontally
+## FIFO Queue
+- First In First Out (ordering of messages in the queue)
+- Messages are processed in order by the consumer
+
+# Amazon Kinesis
+- For the exam: Kinesis = real-time big data streaming
+- Managed service to collect, process and analyse real-time streaming data on any scale
+
+# Amazon SNS (Simple Notification Service)
+- What if you want to send one message to multiple receivers?
+- Pub/Sub (public and subscribe)
+- The "event publishers" only sends message to one SNS topic
+- As many "event subscribers" as we want to listen to the SNS topic notifications
+- Each subscriber to the topic will get all the messages
+- Up to 12,5000,000 subscriptions per topics, 100,000 topics limit
+
+# Amazon MQ
+- Traditional applications running from on-premises may use open protocols such as: MQTT, AMQP, STOMP, Openwire or WSS
+- When migrating to the cloud, instead of re-engineering the application to use SQS and SNS, we can use Amazon MQ
+- Amazon MQ is a managed message broker service for RabbitMQ and ActiveMQ
+- Amazon MQ doesn't "scale" as much as SQS/SNS
+- It runs on servers, can run in Multi-AZ with failover
+- Has both queue feature and topic feature
+
