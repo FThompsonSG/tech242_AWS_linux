@@ -578,4 +578,70 @@ AWS OpsHub is a UI for managing Snowball devices
 - API keys, passwords, configurations...
 - Severless, scalable, durable, easy SDK
 - Control access permissions using IAM
-- Version tracking and encryption (optional
+- Version tracking and encryption (optional)
+
+# Global Applications in AWS
+- Global DNS: Route 53
+  - Great to route users to the closest deployment with least latency
+  - Great for disaster recovery strategies
+  - Better protection from attack
+- Global Content Delivery Network (CDN): CloudFront
+  - Repliccate part of your application to AWS Edge loccations - decrease latency
+  - Cache common requests - improved user experience and decreased latency
+- S3 Transfer Acceleration
+  - Accelerate global uploads and downloads into Amazon S3
+- AWS Global Accelerator
+  - Improve global application availability and performance using the AWS global network
+
+# Amazon Route 53
+- A Managed DNS (Domain Name System)
+- DNS is a collection of rules and records which helps clients understand how to reach a server through URLs
+- In AWS the most common records are:
+  - A record (IPv4)
+  - AAAA (IPv6)
+  - CNAME: hostname to hostname
+  - Alias (e.g. ELB, CloudFront, S3, RDS etc...)
+- Routing Policies:
+  - Simple Routing Policy (no health checks)
+  - Weighted Routing Policy
+  - Latency Routing Policy
+  - Failover Routing Policy
+
+# AWS CloudFront
+- Content Delivery Network (CDN)
+- Improves read performance, content is cached at the edge
+- Improves user experience
+- 216 Points of Presence globally (edge locations)
+- DDoS protection (because worldwide), integration with Shield and AWS Web Application Firewall
+## CloudFront - Origins
+- S3 bucket:
+  - For distributing files and caching them at the edge
+  - Enhanced security with CcloudFront Origin Access Control (OAC)
+  - OAC is replacing Origin Access Identity (OAI)
+  - CloudFront can be used an an ingress (to upload files to S3)
+- Custom Origin (HTTP)
+  - Application Load Balancer
+  - EC2 instance
+  - S3 website (must first enable the bucket as a static S3 website)
+  - Any HTTP backend you want
+## CloudFront vs S3 Cross Region Replication
+- CloudFront:
+  - Global Edge network
+  - Files are cahed for a TTL (maybe a day)
+  - Great for static content that must be available everywhere
+- S3 Cross Region Replication
+  - Must be setup for each region you want replication to happen
+  - Files are updated in near real time
+  - Read only
+  - Great for dynamic content that needs to be available at low-latency in few regions
+
+# S3 Transfer Acceleration
+- Increase transfer speed by tranferring file to an AWS edge location which will forward the data to the S3 bucket in the target region
+
+# AWS Global Accelerator
+- Improve global application availability and performance using the AWS global network
+- Leverage the AWS internal network to optimise the route to your application (60% improvement)
+- 2 Anycast IP are created for your application and traffix is sent through Edge Locations
+- The Edge locations send the traffic to your application
+
+# AWS Outposts
