@@ -645,3 +645,30 @@ AWS OpsHub is a UI for managing Snowball devices
 - The Edge locations send the traffic to your application
 
 # AWS Outposts
+- "Server racks" that offers the same AWS infrastructure, services, APIs and tools to build your own applications on-premises just as in the cloud
+- AWS will set up and manage "Outpost Racks" (servers) within your on-premises infrastructure and you can start leveraging AWS services on-premises
+- You are responsible for the Outpost Racks physical security
+- Benefits:
+  - Low-latency access to on-premises systems
+  - Local data processing
+  - Data residency
+  - Easier migration from on-premises to the cloud
+  - Fully managed service
+- Some services that work on Outposts:
+  - EC2, EBS, S3, EKS, ECS, RDS and EMR
+
+# AWS WaveLength
+- WaveLength Zones are infrastructure deployments embedded within the telcommunications provider's datacentres at the edge of the 5G networks
+- Brings AWS services to the edge of 5G networks
+- E.g. EC2, EBS, VPC...
+- Ultra-low latency applications through 5G networks
+- Traffic doesn't leave the Communication Service Provider's (CSP) network
+- High-bandwidth and secure connection to the parent AWS region
+- No additional charges or service agreements
+- Use cases: Smart Cities, ML-assisted diagnostics, Connected Vehicles, Interactive Live Video Streams, AR/VR, Real-time gaming etc...
+
+# AWS LocalZones
+- Places AWS ccompute, storage, database and other selected AWS services closer to the end users to run latency-sensitive applications
+- Extend your VPC to more locations - "Extension of an AWS region"
+- Compatible with EC2, RDS, ECS, EBS, ElastiCache, Direct Connect etc...
+
