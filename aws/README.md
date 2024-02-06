@@ -712,3 +712,104 @@ AWS OpsHub is a UI for managing Snowball devices
 - It runs on servers, can run in Multi-AZ with failover
 - Has both queue feature and topic feature
 
+# Amazon CloudWatch Metrics
+- Provides metrics for every service in AWS
+- Metric is a variable to monitor and have timestamps
+
+# Amazon CloudWatch Alarms
+- Alarms are used to trigger notifications for any metric
+- Alarm actions:
+  - Auto scaling
+  - EC2 actions
+  - SNS notifications
+- Can customise various options e.g. %, min, max etc
+- Customise the period on which to evaluate
+- Alarm states are OK, INSUFFICIENT_DATA and ALARM
+
+# Amazon CloudWatch Logs
+- Can be collected from:
+  - Elastic Beanstalk: collection of logs from application
+  - ECS: collection from containers
+  - AWS Lambda: collection from function logs
+  - CloudTrail based on filter
+  - CloudWatch log agents: on EC2 machines or on-premises servers
+  - Route53: Log DNS queries
+- Enables real-time monitoring of logs
+- Adjustable CloudWatch logs retention
+## Logs for EC2
+- By default no logs from your EC2 instance will go to CloudWatch
+- You need to run a CloudWatch agent on EC2 to push the log files you want
+- Make sure IAM permissions are correct
+- The CloudWatch log agent can be set up on-premises too
+
+# AWS EventBridge
+- Schedule Cron jobs (scheduled scripts) e.g. every hour trigger a Lambda function
+- Event Pattern: Event rules to react to a service doing something e.g. notification if someone logs in as root user
+- Trigger Lambda functions, send SQS/SNS messages etc
+- Can configure for parnter services to trigger events or custom apps
+- You can archive events and replay them
+
+# AWS CloudTrail
+- Provides governance, compliance and audit for your AWS account
+- Is enabled by default
+- Get history of events/API calls made within your AWS account by:
+  - Console
+  - SDK
+  - CLI
+  - AWS services
+- Can put logs from CloudTrail into CloudWatch Logs or S3
+- Can be applied to all regions (default) or a single region
+- If a resources is deleted in AWS, investiage CloudTrail first
+
+# AWS X-Ray
+- Debugging in Production, the good old way:
+  - Test locally
+  - Add log statements everywhere
+  - Re-deploy in production
+- Log formats differ across applications and log analysis is hard
+- Debuggin a monolith is easy, distributed services is hard
+- No common views of your entire architecture
+- With X-Ray:
+  - Troubleshooting performance (bottlenecks)
+  - Understand dependencies in a microservice architecture
+  - Pinpoint service issues
+  - Review request behaviour
+  - Find errors and exceptions
+  - Are we meeting the SLA? (service level agreement)
+  - Where am I being throttled?
+  - Identify users that are impacted
+
+# Amazon CodeGuru
+- A ML-powered service for automated code reviews and application performancce recommendations
+- Provides two functionalities:
+  - CodeGuru Reviewer: automated code reviews for static code analysis (development so during commit to repo)
+  - CodeGuru Profiler: visibility/recommendations about application performance during runtime (production so during build/test and after deployment)
+## Reviewer
+- Identify crucial issues, security vulnerabilities and hard to find bugs
+- Common coding best practices, resource leaks, security detection and input validation
+- Uses ML and automated reasoning
+- Hard learned lessons across millions of code reviews on 1000s of ooen source and Amazon repos
+- Supports Java and Python
+- Integrates with GitHub, Bitbucket and Amazon CodeCommit
+## Profiler
+- Helps understand the runtime behaviour of your application e.g. if your application is consuming excessive CPU capacity on a logging routine
+- Features:
+  - Identify and remove cod inefficiencies
+  - Improved application performance (e.g. reduce CPU utilisation)
+  - Decrease compute costs
+  - Provides heap summary (identifies which objects using up memory)
+  - Anomaly detection
+- Supports applications running on AWS or on-premises
+- Minimal overhead on application
+
+# AWS Health Dashboard
+## Service History
+- Shows all regions and all services health
+- Shows historical information for each day
+- Has an RSS feed you can subscribe to
+- Previously called AWS Service Health Dashboard
+## Your Account
+- Provides alerts and remediation guidance when AWS is experiencing events that may impact you
+- Gives you a personalised views into the performance and availability of the AWS services underlying your AWS resources
+- The dashboard displays relevant and timely information to help you manage events in progress and provides proactive notifications to help you plan for scheduled activites
+- Can aggregate data from an entire AWS Organisation
