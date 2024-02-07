@@ -101,6 +101,18 @@
 - [VPC Peering](#vpc-peering)
 - [VPC Endpoints](#vpc-endpoints)
 - [AWS PrivateLink (VPC Endpoint Services)](#aws-privatelink-vpc-endpoint-services)
+- [Site to Site VPN \& Direct Connect](#site-to-site-vpn--direct-connect)
+- [Client VPN](#client-vpn)
+- [Transit Gateway](#transit-gateway)
+- [AWS Shared Responsibility Model](#aws-shared-responsibility-model)
+  - [RDS](#rds)
+  - [S3](#s3)
+- [DDoS Protection: WAF and Shield](#ddos-protection-waf-and-shield)
+    - [DDoS (Distributed Denial-of-Service) is when an attacker has master servers that launch many bots to make requests to the application server and throttle it so it will not be accessible or responsive to normal users](#ddos-distributed-denial-of-service-is-when-an-attacker-has-master-servers-that-launch-many-bots-to-make-requests-to-the-application-server-and-throttle-it-so-it-will-not-be-accessible-or-responsive-to-normal-users)
+  - [AWS Shield](#aws-shield)
+  - [AWS WAF - Web Application Firewall](#aws-waf---web-application-firewall)
+- [AWS Network Firewall](#aws-network-firewall)
+- [AWS Firewall Manager](#aws-firewall-manager)
 
 
 # AWS Instance Launch Process
@@ -987,4 +999,109 @@ AWS OpsHub is a UI for managing Snowball devices
 - VPC Endpoint Interface: All other services
 
 # AWS PrivateLink (VPC Endpoint Services)
-- 
+- Most secure and scalable way to expose a services to 1000s of VPCs
+- Does not require VPC peering, internet gateways, NAT, route tables etc...
+- Requires a netowrk load balancer (Service VPC) and ENI (Customer VPC)
+3rd Party VPC (Application Service) -> Network Load Balancer -> AWS PrivateLink -> Elastic Network Interface -> Your VPC (Consumer Application)
+
+# Site to Site VPN & Direct Connect
+- Site to Site VPN
+  - Connect an on-premises VPN to AWS
+  - The connection is automatically encrypted
+  - Goes over the public internet
+  - On-premises: must use a Customer Gateway (CGW)
+  - AWS: must use a Virtual Private Gateway (VGW)
+- Direct Connect (DX)
+  - Establish a physical connection between on-premises and AWS
+  - The connection is private, secure and fast
+  - Goes over a private network
+  - Takes at least a month to establish
+
+# Client VPN
+- Connect from your computer using OpenVPN to your private network in AWS and on-premises
+- Allow you to connect to your EC2 instances over a private IP (just as if you were in a private VPC network)
+- Goes over public internet
+
+# Transit Gateway
+- For having transitive peering between thousands of VPC and on-premises, hub-and-spoke (star) connection
+- One single Gateway to provide this functionality
+- Works with Direct Connect Gateway, VPN connections
+
+# AWS Shared Responsibility Model
+- AWS responsibility: Security of the Cloud
+  - Protecting infrastructure (hardware, software, facilities and networking) that runs all the AWS services
+  - Managed services like S3, DynamoDB, RDS etc...
+- Customer responsibility: Security in the Cloud
+  - For an EC2 instance, customer is responsible for management of the guest OS (including security patches and updates), firewall & network configuration and IAM
+  - Encrypting application data
+- Shared controls:
+  - Patch management, configuration management, awareness and training
+## RDS
+- AWS responsiblity:
+  - Manage the underlying EC2 instance, disable SSH access
+  - Automated DB patching
+  - Automated OS patching
+  - Audit the underlying instance, disks and guarantee it functions
+- Your responsibility:
+  - Check the ports/IP/security group inbound rules in DB's SG
+  - In-database user creation and permissions
+  - Creating a database with or without public access
+  - Ensure parameter groups or DB is configured to only allow SSL connections
+  - Database encryption setting
+## S3
+- AWS responsibility:
+  - Guarantee you get unlimited storage
+  - Guatantee you get encryption
+  - Ensure separation of the data between different customers
+  - Ensure AWS employees can't access your data
+- Your responsibility:
+  - Bucket configuration
+  - Bucket policy/public setting
+  - IAM user and roles
+  - Enabling encryption
+
+# DDoS Protection: WAF and Shield
+### DDoS (Distributed Denial-of-Service) is when an attacker has master servers that launch many bots to make requests to the application server and throttle it so it will not be accessible or responsive to normal users
+- AWS Shield Standard: protects against DDoS attacks for your website and applications for all customers at no additional cost
+- AWS Shield Advanced: 24/7 premium DDoS protection
+- AWS WAF: Filter specific requests based on rules
+- CloudFront and Route 53:
+  - Availability protection using global edge network
+  - Combined with AWS shield it provides attack mitigation at the edge
+- Be read to scale: leverage AWS auto scaling
+## AWS Shield
+- AWS Shield Standard:
+  - Free service that is activated for every AWS customer
+  - Provides protection from attacks such a SYN/UDP Floods, Reflection attacks and other layer 3/4 attacks
+- AWS Shield Advanced:
+  - Optional DDoS mitigation service ($3,000 per month per organisation)
+  - Protect against more sophisticated attacks on EC2, ELB, CloudFront, Global Accelerator and Route 53
+  - 24/7 access to AWS DDoS response team (DRP)
+  - Protect against higher fees during usage spikes due to DDoS
+## AWS WAF - Web Application Firewall
+- Protects your web applications from common web explots (Layer 7)
+- Layer 7 is HTTP (Layer 4 is TCP)
+- Deploy on Application Load Balancer, API Gatweay and CloudFront
+- Define Web ACL:
+  - Rules can include IP addresses, HTTP header & body or URI strings
+  - Protects from common attack: SQL injection and Cross-Site Scripting (XSS)
+  - Size constraints, geo-match (block countries)
+  - Rate-based rules (to count the occurrence of events) - for DDoS protection
+
+# AWS Network Firewall
+- Protect your entire Amazon VPC from Layer 3 to Layer 7
+- Any direction, you can inspect:
+  - VPC to VPC traffic
+  - Outbound to internet
+  - Inbound to internet
+  - To/from Direct Connect and Site-to-Site VPN
+
+# AWS Firewall Manager
+- Manage security rules in all accounts of an AWS organisation
+- Security policy - common set of security rules:
+  - VPC Security Groups for EC2, Application Load Balancer etc...
+  - WAF rules
+  - AWS Shield Advanced
+  - AWS Network Firewall
+- Rules are applied to new resources as they are created (good for compliance) across all current and future accounts in your organisation
+
