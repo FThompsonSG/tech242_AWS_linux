@@ -1,3 +1,108 @@
+- [AWS Instance Launch Process](#aws-instance-launch-process)
+- [AWS Custom AMI Creation](#aws-custom-ami-creation)
+- [AMI Deregistering and Snapshot Deletion](#ami-deregistering-and-snapshot-deletion)
+- [Classic Ports To Know](#classic-ports-to-know)
+- [EC2 Instance Purchasing Options](#ec2-instance-purchasing-options)
+- [AWS Load Balancers](#aws-load-balancers)
+- [Snow Family](#snow-family)
+  - [Highly secure, offline, protable devices to collect and process data at the edge and/or migrate data in and out of AWS](#highly-secure-offline-protable-devices-to-collect-and-process-data-at-the-edge-andor-migrate-data-in-and-out-of-aws)
+- [AWS Storage Gateway](#aws-storage-gateway)
+- [AWS Databases](#aws-databases)
+  - [AWS RDS (Relational Database Service)](#aws-rds-relational-database-service)
+    - [RDS vs Deploying DB on EC2](#rds-vs-deploying-db-on-ec2)
+  - [Amazon Aurora](#amazon-aurora)
+    - [Aurora Serverless](#aurora-serverless)
+  - [RDS Deployments](#rds-deployments)
+    - [Read Replicas](#read-replicas)
+    - [Multi-AZ](#multi-az)
+    - [Multi-Region (Read Replicas)](#multi-region-read-replicas)
+  - [Amazon ElastiCache](#amazon-elasticache)
+  - [DynamoDB](#dynamodb)
+    - [DynamoDB Acceleraor - DAX](#dynamodb-acceleraor---dax)
+    - [DynamoDB - Global Tables](#dynamodb---global-tables)
+  - [Redshift](#redshift)
+    - [Redshift Serverless](#redshift-serverless)
+  - [Amazon EMR (Elastic MapReduce) - Not a Database](#amazon-emr-elastic-mapreduce---not-a-database)
+  - [Amazon Athena](#amazon-athena)
+  - [Amazon QuickSight](#amazon-quicksight)
+  - [DocumentDB](#documentdb)
+  - [Amazon Neptune](#amazon-neptune)
+  - [Amazon Timestream](#amazon-timestream)
+  - [Amazon QLDB (Quantum Ledger Database)](#amazon-qldb-quantum-ledger-database)
+  - [Amazon Managed Blockchain](#amazon-managed-blockchain)
+  - [AWS Glue](#aws-glue)
+  - [DMS (Data Migration Service)](#dms-data-migration-service)
+- [Databases \& Analytics Summary in AWS (For AWS CCP Exam)](#databases--analytics-summary-in-aws-for-aws-ccp-exam)
+- [Docker (not on exam)](#docker-not-on-exam)
+  - [Where Docker images are stored?](#where-docker-images-are-stored)
+  - [Docker vs Virtual Machines](#docker-vs-virtual-machines)
+- [ECS (Elastic Container Service)](#ecs-elastic-container-service)
+- [Fargate](#fargate)
+- [ECR (Elastic Container Registry)](#ecr-elastic-container-registry)
+- [Serverless](#serverless)
+- [Lambda](#lambda)
+  - [Benefits](#benefits)
+  - [Language Support](#language-support)
+- [Amazon API Gateway](#amazon-api-gateway)
+- [AWS Batch](#aws-batch)
+- [Amazon Lightsail](#amazon-lightsail)
+- [Other Computer Summary](#other-computer-summary)
+- [Lambda Summary](#lambda-summary)
+- [CloudFormation](#cloudformation)
+  - [Benefits](#benefits-1)
+- [AWS CDK (Cloud Development Kit)](#aws-cdk-cloud-development-kit)
+- [AWS Elastic Beanstalk](#aws-elastic-beanstalk)
+- [AWS CodeDeploy](#aws-codedeploy)
+- [AWS CodeCommit](#aws-codecommit)
+- [AWS CodeBuild](#aws-codebuild)
+- [AWS CodePipeline](#aws-codepipeline)
+- [AWS CodeArtifact](#aws-codeartifact)
+- [AWS CodeStar](#aws-codestar)
+- [AWS Cloud9](#aws-cloud9)
+- [AWS Systems Manager (SSM)](#aws-systems-manager-ssm)
+- [Systems Manager - SSM Session Manager](#systems-manager---ssm-session-manager)
+- [SSM Parameter Store](#ssm-parameter-store)
+- [Global Applications in AWS](#global-applications-in-aws)
+- [Amazon Route 53](#amazon-route-53)
+- [AWS CloudFront](#aws-cloudfront)
+  - [CloudFront - Origins](#cloudfront---origins)
+  - [CloudFront vs S3 Cross Region Replication](#cloudfront-vs-s3-cross-region-replication)
+- [S3 Transfer Acceleration](#s3-transfer-acceleration)
+- [AWS Global Accelerator](#aws-global-accelerator)
+- [AWS Outposts](#aws-outposts)
+- [AWS WaveLength](#aws-wavelength)
+- [AWS LocalZones](#aws-localzones)
+- [Cloud Integration](#cloud-integration)
+- [Amazon SQS (Simple Queue Service)](#amazon-sqs-simple-queue-service)
+  - [Standard Queue](#standard-queue)
+  - [FIFO Queue](#fifo-queue)
+- [Amazon Kinesis](#amazon-kinesis)
+- [Amazon SNS (Simple Notification Service)](#amazon-sns-simple-notification-service)
+- [Amazon MQ](#amazon-mq)
+- [Amazon CloudWatch Metrics](#amazon-cloudwatch-metrics)
+- [Amazon CloudWatch Alarms](#amazon-cloudwatch-alarms)
+- [Amazon CloudWatch Logs](#amazon-cloudwatch-logs)
+  - [Logs for EC2](#logs-for-ec2)
+- [AWS EventBridge](#aws-eventbridge)
+- [AWS CloudTrail](#aws-cloudtrail)
+- [AWS X-Ray](#aws-x-ray)
+- [Amazon CodeGuru](#amazon-codeguru)
+  - [Reviewer](#reviewer)
+  - [Profiler](#profiler)
+- [AWS Health Dashboard](#aws-health-dashboard)
+  - [Service](#service)
+  - [Your Account](#your-account)
+- [VPC (Virtual Private Cloud)](#vpc-virtual-private-cloud)
+- [IP Addresses in AWS](#ip-addresses-in-aws)
+- [VPC and Subnets Primer](#vpc-and-subnets-primer)
+  - [Internet Gateways and NAT Gateways](#internet-gateways-and-nat-gateways)
+- [Network ACL and Security Groups](#network-acl-and-security-groups)
+- [VPC Flow Logs](#vpc-flow-logs)
+- [VPC Peering](#vpc-peering)
+- [VPC Endpoints](#vpc-endpoints)
+- [AWS PrivateLink (VPC Endpoint Services)](#aws-privatelink-vpc-endpoint-services)
+
+
 # AWS Instance Launch Process
 
 1.	Enter "cd .ssh" in the terminal to go to relevant directory
@@ -803,7 +908,7 @@ AWS OpsHub is a UI for managing Snowball devices
 - Minimal overhead on application
 
 # AWS Health Dashboard
-## Service History
+## Service
 - Shows all regions and all services health
 - Shows historical information for each day
 - Has an RSS feed you can subscribe to
@@ -813,3 +918,73 @@ AWS OpsHub is a UI for managing Snowball devices
 - Gives you a personalised views into the performance and availability of the AWS services underlying your AWS resources
 - The dashboard displays relevant and timely information to help you manage events in progress and provides proactive notifications to help you plan for scheduled activites
 - Can aggregate data from an entire AWS Organisation
+
+# VPC (Virtual Private Cloud)
+- For the exam:
+  - VPC, Subnets, Internet Gateways and NAT Gateways
+  - Security Groups, Network ACL (NACL) and VPC Flow Logs
+  - VPC Peering, VPC Endpoints
+  - Site to Site VPN and Direct Connect
+  - Transit Gateway
+
+# IP Addresses in AWS
+- IPv4 - Internet Protocol version 4 (4.3 billion addresses)
+  - Public IPv4 - Can be used on the internet
+  - EC2 instances gets a new public IP address every time you stop and start it
+  - Private IPv4 - can be used on private networks (LAN) such as internal AWS networking
+  - Private IPv4 is fixed for EC2 instances even if you start/stop them
+- Elastic IP - Allows you to attach a fixed public IPv4 address to an EC2 instance
+  - N.B. Has ongoing cost if not attached to an EC2 instance of if the instance is stopped
+- IPv6 - Internet Protocol version6 (a lot more addresses)
+  - Every IP address is public (no private range)
+
+# VPC and Subnets Primer
+- VPC - Virtual Private Cloud: private network to deploy your resources (regional resource)
+- Subnets allow you to partition your network inside your VPC (AZ resource)
+- A public subnet is accessible from the internet
+- A private subnet is not
+- To define access to the internet between subnets we use Route Tables
+## Internet Gateways and NAT Gateways
+- Internet gateways help our VPS instances connect with the internet
+- Public subnets have a route to the internet gateway
+- NAT Gateways (AWS-managed) and NAT Instances (self-managed) allow your instances in your Private Subnets to access the internet while remaining private
+
+# Network ACL and Security Groups
+- NACL (Network ACL)
+  - A firewall which controls traffic from and to a subnet
+  - Can have ALLOW and DENY rules
+  - Attached at the subnet level
+  - Rules only include IP addresses
+  - Stateless: Return traffic must be explicitly allowed by rules
+- Security Groups
+  - A firewall which controls traffic to and from an ENI/EC2 instance
+  - Can only have ALLOW rules
+  - Rules include both IP addresses and other security groups
+  - Stateful: Return traffic is automatically allowed, regardless of any rules
+
+# VPC Flow Logs
+- Capture information about IP traffic going into your interfaces:
+  - VPC flow logs
+  - Subnet flow logs
+  - Elastic Network Interface flow logs
+- Helps to monitor and troubleshoot connectivity issues e.g.
+  - Subnets to internet
+  - Subnets to subnet
+  - Internet to subnets
+- Capture network information from AWS managed interfaces too such as Elastic Load Balancers, ElastiCache, RDS, Aurora etc...
+- VPC flow logs dta can go to S3, CloudWatch logs and Kinesis Data Firehose
+
+# VPC Peering
+- Connect two VPC privately using AWS' network
+- Make them behave as if they were in the same network
+- Must not have overlapping CIDR (IP address range)
+- VPC Peering connection is not transitive (must be established for each VPC that need to communicate to one another)
+
+# VPC Endpoints
+- Endpoints allow you to connect to AWS services using a private network instead of a public www network
+- This gives you enhanced security and lower latency to access AWS services
+- VPC Endpoint Gateway: S3 and DynamoDB
+- VPC Endpoint Interface: All other services
+
+# AWS PrivateLink (VPC Endpoint Services)
+- 
