@@ -113,6 +113,16 @@
   - [AWS WAF - Web Application Firewall](#aws-waf---web-application-firewall)
 - [AWS Network Firewall](#aws-network-firewall)
 - [AWS Firewall Manager](#aws-firewall-manager)
+- [Penetration Testing on AWS Cloud](#penetration-testing-on-aws-cloud)
+- [Encryption with KMS and CloudHSM](#encryption-with-kms-and-cloudhsm)
+  - [Data at rest vs Data in transit](#data-at-rest-vs-data-in-transit)
+  - [AWS KMS (Key Management Service)](#aws-kms-key-management-service)
+  - [CloudHSM](#cloudhsm)
+    - [Types of KMS Keys](#types-of-kms-keys)
+- [AWS Certificate Manager (ACM)](#aws-certificate-manager-acm)
+- [AWS Secrets Manager](#aws-secrets-manager)
+- [AWS Artifact](#aws-artifact)
+- [Amazon GuardDuty](#amazon-guardduty)
 
 
 # AWS Instance Launch Process
@@ -1105,3 +1115,89 @@ AWS OpsHub is a UI for managing Snowball devices
   - AWS Network Firewall
 - Rules are applied to new resources as they are created (good for compliance) across all current and future accounts in your organisation
 
+# Penetration Testing on AWS Cloud
+- You try to attack your own infrastructure to test your security
+- AWS customers are welcome to carry out security assessments or penetration tests against their AWS infrastructure without prior approval for 8 servies:
+  - EC2 instances, NAT Gateways and Elastic Load Balancers
+  - RDS
+  - CloudFront
+  - Aurora
+  - API Gateways
+  - Lambda and Lambda Edge Functions
+  - Lightsail resources
+  - Elastic Beanstalk Environments
+- Prohibited activities:
+  - DNS zone walking via Amazon Route 53 Hosted Zones
+  - Denial of Service (Dos), Distributed Denial of Service (DDoS), Simulated DoS or DDoS
+  - Port flooding
+  - Protocol flooding
+  - Request flooding (login request flooding, API request flooding)
+
+# Encryption with KMS and CloudHSM
+## Data at rest vs Data in transit
+- At rest:
+  - On a hard disk, on a RDS instance, in S3 Glacier Deep Archive etc...
+- In transit: data being moved from one location to another
+  - Transfer from on-premises to AWS, EC2 to DynamoDB etc...
+  - Means data transfer over the network
+- We want to encrypt data in both states to protect it
+- For this we leverage enccryption keys
+## AWS KMS (Key Management Service)
+- Anytime you hear encryption for an AWS service it is most likely KMS
+- KMS = AWS manages teh encryption keys for us
+- Encryption opt-in:
+  - EBS volumes: encrypt volumes
+  - S3 buckets: Server-side encryption of objects
+  - Redshift database: encryption of data
+  - RDS database: encryption of data
+  - EFD drives: encryption of data
+- Encryption automatically enabled:
+  - CloudTrail logs
+  - S3 Glacier
+## CloudHSM
+- KMS = AWS manages the software for encryption
+- CloudHSM = AWS provisions encryption hardware
+- Dedicated hardware (HSM = Hardware Security Module)
+- You manage your own encryption keys entirely
+- HSM device is tamper resistant, FIPS 140-2 Level 3 compliance
+### Types of KMS Keys
+- Customer Managed Key:
+  - Created, managed and used by the customer; can enable or disable
+  - Possibility of rotation policy (new key generated every year, old key preserved)
+  - Possibility of bring your own key
+- AWS Managed Key:
+  - Created, managed and use on the customer's behalf by AWS
+  - Used by AWS services (aws/s3, aws/ebs, aws/redshift)
+- AWS Owned Key:
+  - Collection of CMKs that an AWS service owns and manages to use in multiple accounts
+  - AWS can use those to protect resources in your account (but you can't view the keys)
+- CloudHSM Keys (custom keystore):
+- Keys generated from your own CloudHSM hardware device
+- Cryptographic operations are performed within the CloudHSM cluster
+
+# AWS Certificate Manager (ACM)
+- Let's you easily provision, mange and deploy SSL/TLS certificates
+- Used to provide in-flight encryption for websites (HTTPS)
+- Supports both public and private TLS certificates
+- Free of charge for public TLS certificates
+Automatic TLS certificate renewal
+- Integrations with (load TLS certificates on):
+  - Elastic Load Balancers
+  - CloudFront Distributions
+  - APIs on API Gateway
+
+# AWS Secrets Manager
+- Newer service meant for storing secrets
+- Capability to force rotation on secrets every x days
+- Automate generation of secrets on rotation (uses Lambda)
+- Integration with Amazon RDS (MySQL, PostgreSQL, Aurora)
+- Secrets are encrypted using KMS
+- Mostly meant for RDS integration
+
+# AWS Artifact
+- Portal that provides customers with on-demand access to AWS compliance documentation and AWS agreements
+- Artifact Reports - Allows you to download AWS security and compliance documents from third-party auditors, like AWS ISO certifications, Payment Card Industry (PCI) and System and Organisation Control (SOC) reports
+- Artifact Agreements - Allows you to receive, accept and track the status of AWS agrements such as the Business Associate Addendum (BAA) or the Health Insurance Portability and Accountability Act (HIPAA) for an individual account or in your organisation
+- Can be used to support internal audit or compliance
+
+# Amazon GuardDuty
