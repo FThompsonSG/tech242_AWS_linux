@@ -123,6 +123,15 @@
 - [AWS Secrets Manager](#aws-secrets-manager)
 - [AWS Artifact](#aws-artifact)
 - [Amazon GuardDuty](#amazon-guardduty)
+- [Amazon Inspector](#amazon-inspector)
+  - [What does Amazon Inspector evaluate?](#what-does-amazon-inspector-evaluate)
+- [AWS Config](#aws-config)
+- [Amazon Macie](#amazon-macie)
+- [AWS Security Hub](#aws-security-hub)
+- [Amazon Detective](#amazon-detective)
+- [AWS Abuse](#aws-abuse)
+- [Root User Privileges](#root-user-privileges)
+- [IAM Access Analyser](#iam-access-analyser)
 
 
 # AWS Instance Launch Process
@@ -1201,3 +1210,98 @@ Automatic TLS certificate renewal
 - Can be used to support internal audit or compliance
 
 # Amazon GuardDuty
+- Intelligent Threat discovery to protect your AWS account
+- Uses ML algorithms, anomaly detection and 3rd party data
+- One click to enable (30 days free trial) and no need to install software
+- Input data includes:
+  - CloudTrail Events Logs - unusual API calls or unauthorised deployments
+    - CloudTrail Management Events - create VPC subnet, create trail etc...
+    - CloudTrail S3 Data Events - get object, list objects, delete object etc...
+  - VPC Flow Logs - unusual internet traffic, unusual IP address
+  - DNS Logs - compromised EC2 instances sending encoded data within DNS queries
+  - Optional Features - EKS Audit Logs, RDS & Aurora, EBS, Lambda, S3 Data Events...
+- Can set up EventBrudge rules to be notified in case of findings
+- EventBridge rules can target AWS Lambda or SNS
+- Can protect against CryptoCurrency attacks (has a dedicated "finding" for it)
+
+# Amazon Inspector
+- Automated Security Assessments
+- For EC2 instances:
+  - Leveraging the AWS System Manager (SSM) agent
+  - Analyse against unintended network accessibility
+  - Analyse the running OS against known vulnerabilities
+- For container images pushed to Amazon ECR:
+  - Assessment of container images as they are pushed
+- For Lambda functions:
+  - Identifies software vulnerabilities in function code and package dependencies
+  - Assessment of functions as they are deployed
+- Reporting and integration with AWS Security Hub
+- Send findings to Amazon Event Bridge
+## What does Amazon Inspector evaluate?
+- Only for EC2 instances, Container Images and Lambda Functions
+- Continuous scanning of the infrastructure, only when needed
+- Package vulnerabilities (EC2, ECR and Lambda) - database of CVE
+- Network reachability (EC2)
+- A risk score is associated with all vulnerabilities for prioritisation
+
+# AWS Config
+- Helps with auditing and recording compliance of your AWS resources
+- Helps record configurations and changes over time
+- Possibility of storing the configuration data into S3 (analysed by Athena)
+- Questions that can be solved by AWS config:
+  - Is there unrestricted SSH access to my security groups?
+  - Do my buckets have any public access?
+  - How has my ALB configuratiion changed over time?
+- You can receive alerts (SNS notifications) for any changes
+- AWS Config is a per-region service
+- Can be aggregated across regions and accounts
+
+# Amazon Macie
+- A fully managed data security and data privacy service that uses ML and pattern matching to discover and protect your sensitive data in AWS
+- Macie helps identify and alert you to sensitive data such as personally identifiable information (PII)
+
+# AWS Security Hub
+- Central security tool to manage security across serveral AWS accounts and automate security checks
+- Integrated dashboards showing current security and compliance status to quickly take actions
+- Automatically aggregates alerts in predefined or personal findings formats from various AWS services and AWS partner tools:
+  - Config
+  - GuardDuty
+  - Inspector
+  - Macie
+  - IAM Access Analyser
+  - AWS Systems Manager
+  - AWS Firewall Manager
+  - AWS Health
+  - AWS Parnter Network Solutions
+- Must first enable the AWS Config Service
+
+# Amazon Detective
+- GuardDuty, Macie and Security Hub are used to identify potential security issues or findings
+- Sometimes security findings require deeper analysis to isolate the root cause and take action - complex process
+- Amazon Detective analyses, investigates and quickly identifies the root cause of the security issues or suspicious activities (using ML and graphs)
+- Automatically collects and processes events from VPC Flow Logs, CloudTrail, GuardDuty and creates a unified view
+- Produces visualisations with details and context to get to the root cause
+
+# AWS Abuse
+- Report suspected AWS resourccees used for abusive or illegal purposes
+- Abusive and prohibited behaviours are:
+  - Spam
+  - Port scanning
+  - Dos or DDoS attacks
+  - Intrusion attempts
+  - Hosting objectionable or copyrighted content
+  - Distributing malware
+
+# Root User Privileges
+- Actions that can be performed only by the root user:
+  - Change account settings
+  - View certain tax invoices
+  - Close your AWS account
+  - Restore IAM user permissions
+  - Change or cancel your AWS Support plan
+  - Register as a seller in the Reserved Instance Marketplace
+  - Configure an Amazon S3 bucket to enable MFA
+  - Edit or delete an S3 bucket policy that includes an invalid VPC ID or VPC endpoint ID
+  - Sign up for GovCloud
+
+# IAM Access Analyser
