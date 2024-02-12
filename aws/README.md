@@ -132,6 +132,13 @@
 - [AWS Abuse](#aws-abuse)
 - [Root User Privileges](#root-user-privileges)
 - [IAM Access Analyser](#iam-access-analyser)
+- [Machine Learning](#machine-learning)
+- [Amazon Rekognition](#amazon-rekognition)
+- [Amazon Transcribe](#amazon-transcribe)
+- [Amazon Polly](#amazon-polly)
+- [Amazon Translate](#amazon-translate)
+- [Amazon Lex \& Connect](#amazon-lex--connect)
+- [Amazon Comprehend](#amazon-comprehend)
 
 
 # AWS Instance Launch Process
@@ -1305,3 +1312,68 @@ Automatic TLS certificate renewal
   - Sign up for GovCloud
 
 # IAM Access Analyser
+- Find out which resources are shared externally:
+  - S3 buckets
+  - IAM Roles
+  - KMS keys
+  - Lambda functions and layers
+  - SQS queues
+  - Secrets Manager secrets
+- Define Zone of Trust = AWS Account or AWS Organisation
+- Access outside zone of trusts reported as findings
+
+# Machine Learning
+# Amazon Rekognition
+- Find objects, people, text, scenes in images and videos using ML
+- Facial analysis and facial search to do user verification and people counting
+- Create a database of "familiar faces" or compare against celebrities
+- Use cases:
+  - Labelling
+  - Content moderation
+  - Text detection
+  - Face detection and analysis
+  - Face search and verification
+  - Celebrity recognition
+  - Pathing (e.g. for sports game analysis)
+
+# Amazon Transcribe
+- Automatically convert speech to text
+- Uses a deep learning proccess called automatic speech recognition (ASR) to convert speech to text quickly and accurately
+- Automatically removes PII using redaction
+- Supports Automatic Lanuage Identification for multi-lingual audio
+- Use cases:
+  - Transcribe customer service calls
+  - Automate closed captioning and subtitling
+  - Generate metadata for media assets to create a fully searchable archive
+
+# Amazon Polly
+- Turn text into lifelike speeccch using deep learning
+- Allows you to create applications that talk
+
+# Amazon Translate
+- Natural and accurate language translation
+- Amazon Translate allows you to localise content such as website and applications for international users, and to easily translate large volumes of text efficiently
+
+# Amazon Lex & Connect
+- Lex:
+  - Automatic Speech Recognition (ASR) to convert speech to text
+  - Natural Language Understanding to recognise the intent of text, callers
+  - Helps build chatbots, call centre bots
+- Connect:
+  - Receive calls, ccreate ontact flows, cloud-based virtual contact centre
+  - Can integrate with other CRM systems or AWS
+  - No upfront payments, 80% cheaper than traditional contact centre solutions
+
+# Amazon Comprehend
+- For Natural Language Processing (NLP)
+- Fully managed and serverless service
+- Uses ML to find insights and relationships in text:
+  - Language of the text
+  - Extract key phrases, places, people, brands or events
+  - Understands how positive or negative the text is
+  - Analyses text using tokenisation and parts of speech
+  - Automatically organises a collection of text files by topic
+- Use cases:
+  - Analyse customer interactions (emails) to find what leads to a positive or negative experience
+  - Create and group articles by topics Comprehend will uncover
+
