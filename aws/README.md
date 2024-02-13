@@ -139,6 +139,25 @@
 - [Amazon Translate](#amazon-translate)
 - [Amazon Lex \& Connect](#amazon-lex--connect)
 - [Amazon Comprehend](#amazon-comprehend)
+- [Amazon SageMaker](#amazon-sagemaker)
+- [Amazon Forecast](#amazon-forecast)
+- [Amazon Kendra](#amazon-kendra)
+- [Amazon Personalise](#amazon-personalise)
+- [Amazon Textract](#amazon-textract)
+- [Account Management, Billing \& Support](#account-management-billing--support)
+- [AWS Organisations](#aws-organisations)
+  - [Multi Account Strategies](#multi-account-strategies)
+  - [Service Control Policies (SCP)](#service-control-policies-scp)
+- [Consolidated Billing](#consolidated-billing)
+- [AWS Control Tower](#aws-control-tower)
+- [AWS Resource Access Manager (AWS RAM)](#aws-resource-access-manager-aws-ram)
+- [AWS Service Catalog](#aws-service-catalog)
+- [Pricing Models in AWS](#pricing-models-in-aws)
+  - [Free Services \& Free Tier](#free-services--free-tier)
+  - [Compute Pricing - EC2](#compute-pricing---ec2)
+    - [EC2 Instance Types](#ec2-instance-types)
+  - [Compute Pricing - Lambda \& ECS](#compute-pricing---lambda--ecs)
+  - [Storage Pricing - S3](#storage-pricing---s3)
 
 
 # AWS Instance Launch Process
@@ -1377,3 +1396,151 @@ Automatic TLS certificate renewal
   - Analyse customer interactions (emails) to find what leads to a positive or negative experience
   - Create and group articles by topics Comprehend will uncover
 
+# Amazon SageMaker
+- Fully managed service for developers/data scientists to build ML models
+- Typically difficult to do all the processes in one place and provision servers
+
+# Amazon Forecast
+- Full managed service that uses ML to delivery highly accurate forecasts
+- 50% more accurate than looking at the data itself
+- Reduce forecasting time from months to hours
+- Use cases:
+  - Product demand planning
+  - Financial planning
+  - Resource planning
+
+# Amazon Kendra
+- Fully managed document search service poweree by ML
+- Extract answers from within a document
+- Natural language search capabilities
+- Learn from user interactions/feedback to promote preferred results (incremental learning)
+- Ability to manually fine-tune search results (importance of data, freshness, custom)
+
+# Amazon Personalise
+- Fully managed ML-service to build apps with real time personalised recommendations
+- Example: personalised product recommendations/re-ranking, customised direct marketing
+- Same technology used by Amazon.com
+- Integrates into existing websites, applications, SMS, email marketing systems...
+- Implement in days, not months (you don't need to build, train and deploy ML solutions)
+
+# Amazon Textract
+- Automatically extracts text, handwriting and data from any scanned documents using AI and ML
+- Extract data from forms and tables
+- Read and process any type of document
+
+# Account Management, Billing & Support
+# AWS Organisations
+- Global service
+- Allows us to manage multiple AWS accounts
+- The main account is the master account
+- Cost benefits:
+  - Consolidated billing across all accounts - single payment method
+  - Pricing benefits from aggregated usage (volume discount for EC2, S3 etc...)
+  - Pooling of reserved EC2 instances for optimal savings
+- API is available to automate AWS account creation
+- Restrict account privileges using Service Control Policies (SCP)
+## Multi Account Strategies
+- Create accounts per department, per cost centre, per dev/test/prod based on regulatory restrictions (using SCP) for better resource isolations and to have separate per-account service limits with an isolated account for logging
+- Multi Account vs One Account Multi VPC
+- Use tagging standards for billing purposes
+- Enable CloudTrail on all accounts to send logs to a central S3 account
+- Send CloudWatch logs to central logging account
+## Service Control Policies (SCP)
+- Whitelist or blacklist IAM actions
+- Applied at the OU or Account level
+- Does not apply to the master account
+- SCP is applied to all the Users and Roles of the account including root
+- The SCP does not affect service linked roles
+  - Service linked roles enable other AWS services to integrate with AWS Organisations and can't be restricted by SCPs
+- SCP must have an explicit allow (does not allow anything by default)
+- Use cases:
+  - Retrict access to certain services (for example can't use EMR)
+  - Enforce PCI compliance by explicitly disabling services
+
+# Consolidated Billing
+- When enabled, this provides you with:
+  - Combined Usage: Combine the usage across all AWS accounts in the AWS Organisation to share the volume pricing, Reserved Instances and Savings Plans discounts
+  - One Bill: Get one bill for all AWS accounts in the AWS Organisation
+- The management account can turn off Reserved Instances discount sharing for any account in the AWS Organisation, including itself
+
+# AWS Control Tower
+- Easy way to set up and govern a secure and compliant multi-account AWS environment based on best practices
+- Benefits:
+  - Automate the set up of your environment in a few clicks
+  - Automate ongoing policy management using guardrails
+  - Detect policy violations and remediate them
+  - Monitor compliance through an interactive dashboard
+- AWS Control Tower runs on top of AWS Organisations:
+  - It automatically sets up AWS Organisations to organise accounts and implement SCPs
+
+# AWS Resource Access Manager (AWS RAM)
+- Share AWS resourcees that you own with other AWS accounts
+- Share with any account of within your organisation
+- Avoids resource duplication
+- Supported resources include:
+  - Aurora
+  - VPC Subnets
+  - Transit Gateway
+  - Route 53
+  - EC2 Dedicated Hosts
+  - Licence Manager Configurations etc...
+
+# AWS Service Catalog
+- Users that are new to AWS have too many options and may create stacks that are not compliant or in line with the rest of the organisation
+- Some users just want a quick self-service portal to launch a set of authorised products pre-defined by admins
+- Includes:
+  - Virtual machines
+  - Databases
+  - Storage options etc...
+
+# Pricing Models in AWS
+- AWS has 4 pricing models:
+  - Pay as you go - Pay for what you use, remain agile, responsive and meet scale demands
+  - Save when you reserve - Minimise risks, predictably manage budgets, comply with long-term requirements. Reservations are available for EC2 Reserved Instances, DynamoDB Reserved Capacity, ElastiCache Reserved Nodes, RDS Reserved Instance, Redshift Reserved Nodes
+  - Pay less by using more - Volume-based discounts
+  - Pay less as AWS grows
+## Free Services & Free Tier
+- IAM
+- VPC
+- Consolidated Billing
+- Elastic Beanstalk
+- CloudFormation
+- Auto Scaling Groups
+- Free Tier:
+  - EC2 t2.micro instance for a year
+  - S3, EBS, ELB, AWS Data transfer
+## Compute Pricing - EC2
+- Only charged for what you use
+- Number of instances
+- Instance configuration:
+  - Physical capacity
+  - Region
+  - OS and software
+  - Instance type
+  - Instance size
+- ELB running time and amount of data processed
+- Detailed monitoring
+### EC2 Instance Types
+- On-demand instances:
+  - Minimum of 60s
+  - Pay per second (Linux/Windows) or per hour (other)
+- Reserved instances:
+  - Up to 75% discount compared to On-demand on hourly rate
+  - 1 or 3 years commitment
+  - All upfront, partial upfront or no upfront
+- Spot instances:
+  - Up to 90% discount compared to On-demand on hourly rate
+  - Bid for unused capacity
+- Dedicated Host:
+  - On-demand
+  - Reservation for 1 year or 3 years commitment
+- Savings plans as an alternative to save on sustained usage
+## Compute Pricing - Lambda & ECS
+- Lambda:
+  - Pay per call
+  - Pay per duration
+- ECS:
+  - EC2 Launch Type Model - No additional fees, you pay for AWS resources stored and created in your application
+- Fargate:
+  - Fargate Launch Type Model - Pay for vCPU and memory resources allocated to your applications in your containers
+## Storage Pricing - S3
