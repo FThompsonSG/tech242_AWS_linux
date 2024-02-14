@@ -182,6 +182,13 @@
   - [Business Support Plan (24/7)](#business-support-plan-247)
   - [Enterprise On-Ramp Support Plan (24/7)](#enterprise-on-ramp-support-plan-247)
   - [Enterprise Support Plan (24/7)](#enterprise-support-plan-247)
+- [Advanced Identity](#advanced-identity)
+- [AWS STS (Security Token Service)](#aws-sts-security-token-service)
+- [Amazon Cognito](#amazon-cognito)
+- [Directory Services](#directory-services)
+  - [What is Microsoft Active Directory? (AD)](#what-is-microsoft-active-directory-ad)
+  - [AWS Directory Services](#aws-directory-services)
+- [AWS IAM Identity Centre (successor to AWS Single Sign-On)](#aws-iam-identity-centre-successor-to-aws-single-sign-on)
 
 
 # AWS Instance Launch Process
@@ -1724,7 +1731,7 @@ Automatic TLS certificate renewal
 
 # AWS Trusted Advisor
 - No need to install anything - high level AWS account assessment
-- Analysa your AWS accounts and provides recommendations on 6 categories:
+- Analyse your AWS accounts and provides recommendations on 6 categories:
   - Cost optimisation
   - Performance
   - Security
@@ -1775,4 +1782,43 @@ Automatic TLS certificate renewal
 - Case severity / response times:
   - Same as Enterprise On-Ramp Support Plan +
   - Business-critical system down = < 15 minutes
+
+# Advanced Identity
+# AWS STS (Security Token Service)
+- Enables you to create temporary, limited-privileges credentials to access your AWS resources
+- Short-term credentials: you configure the expiration period
+- Use cases:
+  - Identity federation: manage user identities in external systems and provide them with STS tokens to access AWS resources
+  - IAM Roles for cross/same account access
+  - IAM Roles for Amazon EC2: provide temporary credentials for EC2 instances to access AWS resources
+
+# Amazon Cognito
+- Identity for your web and mobile application users (potentially millions)
+- Instead of creating them an IAM user, you create a user in Cognito
+
+# Directory Services
+## What is Microsoft Active Directory? (AD)
+- Found on any Windows server with AD Domain Services
+- Database of objects: User Accounts, Computers, Printers, File Shares or Security Groups
+- Centralised security management, create account or assign permissions
+## AWS Directory Services
+- AWS Managed Microsoft AD:
+  - Create your own AD in AWS, manage users locally and supports MFA
+  - Establish "trust" connections with your on-premises AD
+- AD Connector:
+  - Directory Gateway (proxy) to redirect to on-premises AD and supports MFA
+  - Users are managed on the on-premises AD
+- Simple AD:
+  - AD-compatible managed directory on AWS
+  - Cannot be joined with on-premises AD
+
+# AWS IAM Identity Centre (successor to AWS Single Sign-On)
+- One login (single sign-on) for all your:
+  - AWS accounts in AWS Organisations
+  - Business cloud applications (e.g. Salesforce, Box, Microsoft 365 etc...)
+  - SAML2.0-enabled applications
+  - EC2 Windows Instances
+- Identity providers:
+  - Built-in identity store in IAM Identity Centre
+  - 3rd party: Active Directory (AD), OneLogin, Okta etc...
 
