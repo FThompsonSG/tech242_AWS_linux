@@ -200,6 +200,15 @@
 - [AWS Backup](#aws-backup)
 - [Diaster Recovery Strategies](#diaster-recovery-strategies)
 - [AWS Elastic Disaster Recovery (DRS)](#aws-elastic-disaster-recovery-drs)
+- [AWS DataSync](#aws-datasync)
+- [AWS Application Discovery Service](#aws-application-discovery-service)
+- [AWS Application Migration Service (MGN)](#aws-application-migration-service-mgn)
+- [AWS Migration Evaluator](#aws-migration-evaluator)
+- [AWS Migration Hub](#aws-migration-hub)
+- [AWS Fault Injection Simulator (FIS)](#aws-fault-injection-simulator-fis)
+- [AWS Step Functions](#aws-step-functions)
+- [AWS Ground Station](#aws-ground-station)
+- [Amazon Pinpoint](#amazon-pinpoint)
 
 
 # AWS Instance Launch Process
@@ -1893,3 +1902,85 @@ Automatic TLS certificate renewal
 - Cheapest is Backup and Restore
 
 # AWS Elastic Disaster Recovery (DRS)
+- Used to be named "CloudEndure Disaster Recovery"
+- Quickly and easily recover your physical, virtual and cloud-based servers into AWS
+- Use cases:
+  - Protect your most critical DBs (Oracle, MySQL and SQL Server)
+  - Enterprise apps (SAP)
+  - Protect your data from ransomware attacks
+
+# AWS DataSync
+- Move large amounts of data from on-premises to AWS
+- Can synchronise to Amazon S3 (any storage classes including Glacier), Amazon EFS and Amazon FSx for Windows
+- Replication tasks can be scheduled hourly, daily or weekly
+- The replication tasks are INCREMENTAL after the first full load
+
+# AWS Application Discovery Service
+- Plan migration projects by gathering information about on-premises data centres
+- Server utilisation data and dependency mapping are important for migrations
+- Agentless Discovery (AWS Agentless Discovery Connector)
+  - VM inventory, configuration and performance history such as CPU, memory and disk usage
+- Agent-based Discovery (AWS Application Discovery Agent)
+  - System configuration, system performance, running processes and details of the network connections between systems
+- Resulting data can be viewed within AWS Migration Hub
+
+# AWS Application Migration Service (MGN)
+- The "AWS evolution" of CloudEndure Migration, replacing AWS Server Migration Service (SMS)
+- Lift-and-shift (rehost) solution which simplifies migrating applciations to AWS
+- Coverts your physical, virtual and cloud-based servers to run natively on AWS
+- Supports a wide range of platforms, OS and DBs
+- Minimal downtime with reduced costs
+
+# AWS Migration Evaluator
+- Helps your drive a data-driven business case for migration to AWS
+- Provides a clear baseline of what your organisation is running today
+- Install Agentless Collector to conduct broad-based discovery
+- Take a snapshot of your on-premises foot print, server dependencies etc...
+- Analyse the current state, define the target state and then develop a migration plan
+
+# AWS Migration Hub
+- Central location to collect servers and applications inventory data for the assessment, planning and tracking of migrations to AWS
+- Helps accelerate your migration to AWS, automate lift-and-shift
+- AWS Migration Hub Orchestrator - provides pre-built templates to save time and effort migrating enterprise apps (e.g. SAP, Microsoft SQL Server...)
+- Supports migrations status updates from Application Migration Service (MGN) and Database Migration Service
+
+# AWS Fault Injection Simulator (FIS)
+- A fully managed service for running fault injection experiments on AWS workloads
+- Based on Chaos Engineering - stressing an application by creative disruptive events (e.g. sudden increase in CPU or memory), observing how the system responds and implementing improvements
+- Helps you uncover hidden bugs and performance bottlenecks
+- Supports the following AWS services: EC2, ECS, EKS, RDS...
+- Use pre-built templates that generate the desire disruptions
+
+# AWS Step Functions
+- Build serverless visual workflow to orchestrate your Lambda functions
+- Features: sequence, parallel, conditions, timeouts, error handling etc...
+- Can integrate with EC2, ECS, on-premises servers, API Gateway, SQS queues etc...
+- Possibility of implementing human approval feature
+- Use cases:
+  - Order fulfillment
+  - Data processing
+  - Web applications
+  - Any workflow...
+
+# AWS Ground Station
+- Fully managed service that lets you control satellite communications, process data and scale your satellite operations
+- Provides a global network of satellite ground stations near AWS regions
+- Allows you to download satellite data to your AWS VPC within seconds
+- Send satellite data to S3 or EC2 instance
+- Use cases:
+  - Weather forecasting
+  - Surface imaging
+  - Communications
+  - Video broadcasts
+
+# Amazon Pinpoint
+- Scalable 2-way (outbound/inbound) marketing communications service
+- Supports email, SMS, push, voice and in-app messaging
+- Ability to segment and personalise messages with the right content to customers
+- Possibility to receive replies
+- Scales to billions of messages per day
+- Use cases: run campaigns by sending marketing, bulk, transactional SMS messages
+- Poinpoint vs Amazon SNS or SES
+  - In SNS & SES you mange each message's audience, content and delivery schedule
+  - In Pinpoint you create message templates, delivery schedules, highly targeted segments and full campaigns
+
