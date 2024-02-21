@@ -209,6 +209,18 @@
 - [AWS Step Functions](#aws-step-functions)
 - [AWS Ground Station](#aws-ground-station)
 - [Amazon Pinpoint](#amazon-pinpoint)
+- [AWS Architecting \& Ecosystem](#aws-architecting--ecosystem)
+- [AWS WhitePapers Well-Architected Framework](#aws-whitepapers-well-architected-framework)
+  - [General Guiding Principles](#general-guiding-principles)
+  - [Design Principles](#design-principles)
+  - [6 Pillars](#6-pillars)
+- [1. Operational Excellence](#1-operational-excellence)
+  - [AWS Services](#aws-services)
+- [2. Security](#2-security)
+  - [AWS Services](#aws-services-1)
+- [3. Reliability](#3-reliability)
+  - [AWS Services](#aws-services-2)
+- [4. Performance Efficiency](#4-performance-efficiency)
 
 
 # AWS Instance Launch Process
@@ -1984,3 +1996,121 @@ Automatic TLS certificate renewal
   - In SNS & SES you mange each message's audience, content and delivery schedule
   - In Pinpoint you create message templates, delivery schedules, highly targeted segments and full campaigns
 
+# AWS Architecting & Ecosystem
+# AWS WhitePapers Well-Architected Framework
+## General Guiding Principles
+- Stop guessing your capacity needs
+- Test systems at production scale
+- Automate to make architectural experimentation easier
+- Allow for evolutionary architectures (design based on changing requirements)
+- Drive architectures using data
+- Improve through game days (simulate applications for flash sale days)
+## Design Principles
+- Scalability (vetical and horizontal)
+- Disposable Resources: servers should be disposable and easily configured
+- Automation: Serverless, IaaS, Auto Scaling etc...
+- Loose Coupling:
+  - Monolith are applications that do more and more over time, become bigger
+  - Break it down into smaller, loosely coupled components
+  - A change or failure in one component should not cascade to others
+- Services, not Servers:
+  - Don't just use EC2
+  - Use managed services, DBs, serverless etc...
+## 6 Pillars
+1. Operational Excellence
+2. Security
+3. Reliability
+4. Performance Efficiency
+5. Cost Optimisation
+6. Sustainability
+
+# 1. Operational Excellence
+- Includes the ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedurs
+- Design Principles:
+  - Perform operations as code - IaC
+  - Annotate documentation - Automate the creation of annotaeed documentation after every build
+  - Make frequent, small, reversible changes - So that in case of any failure, you can reverse it
+  - Refine operations procedures frequently - And ensure that team members are familiar with it
+  - Anticipate failure and learn from them
+## AWS Services
+- Prepare:
+  - AWS CloudFormation
+  - AWS Config
+- Operate:
+  - AWS CloudFormation
+  - AWS Config
+  - AWS CloudTrail
+  - AWS CloudWatch
+  - AWS X-Ray
+- Evolve:
+  - AWS CloudFormation
+  - AWS CodeBuild
+  - AWS CodeCommit
+  - AWS CodeDeploy
+  - AWS CodePipeline
+
+# 2. Security
+- Includes the ability to protect information, systems and assets while delivering business value through risk assessments and mitigation strategies
+- Design Principles:
+  - Implement a strong identity foundation - Centralise privileges management and reduce (or even eliminate) reliance on long-term credentials (principle of least privilege (IAM))
+  - Enable traceability - Integrate logs and metrics with systems to automatically respond and take action
+  - Apply security at all layers - Like edge network, VPC, subnet, load balancer, every instance, OS and application
+  - Automate security best practices
+  - Protect data in transit and at rest - Encryption, tokenisation and access control
+  - Keep people away from data - Reduce or eliminate the need for direct access or manual processing of data
+  - Prepare for security events - Run incident response simulations and use tools with automation to increase your speed for detection, investigation and recovery
+## AWS Services
+- Identity and Access Management:
+  - IAM
+  - AWS-STS
+  - MFA token
+  - AWS Organisations
+- Detective Controls:
+  - AWS Config
+  - AWS CloudTrail
+  - AWS CloudWatch
+- Infrastructure Protection:
+  - Amazon CloudFront
+  - Amazon VPC
+  - AWS Shield
+  - AWS WAF
+  - Amazon Inspector
+- Data Protection:
+  - KMS
+  - S3
+  - Elastic Load Balancing (ELB)
+  - Amazon EBS
+  - Amazon RDS
+- Incident Response:
+  - IAM
+  - AWS CloudFormation
+  - Amazon CloudWatch Events
+
+# 3. Reliability
+- Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand and mitigate disruptions such as misconfigurations or transient network issues
+- Design Principles:
+  - Test recovery procedures - Use automation to simulate different failures or to recreate scenarios that led to failures befores
+  - Automatically recover from failure - Anticipate and remediate failures before they occur
+  - Scale horinzontally to increase aggregate system availability - Distribute requests across multiple, smaller resources to ensure that they don't share a common point of failure
+  - Stop guessing capacity - Maintain the optimal level to satisfy demand without over or under provisioning (use auto scaling)
+  - Manage change in automation - Use automation to make changes to infrastructure
+## AWS Services
+- Foundations:
+  - IAM
+  - Amazon VPC
+  - Service Quotas
+  - AWS Trusted Advisor
+- Change Management:
+  - AWS Auto Scaling
+  - Amazon CloudWatch
+  - AWS CloudTrail
+  - AWS Config
+- Failure Management:
+  - Backups
+  - AWS CloudFormation
+  - Amazon S3
+  - Amazon S3 Glacier
+  - Amazon Route 53
+
+# 4. Performance Efficiency
+- 
